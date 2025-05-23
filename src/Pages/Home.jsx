@@ -11,6 +11,7 @@ import {
   BookOpenIcon
 } from '@heroicons/react/24/outline'
 import SEO from '../components/SEO'
+import abhaya1 from '../images/abhaya1.jpg'
 
 export default function Home() {
   return (
@@ -23,24 +24,24 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="relative min-h-[90vh] flex items-center bg-white">
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-8"
+              className="space-y-8 text-left"
             >
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold text-black dark:text-white"
+                className="text-5xl md:text-7xl font-bold text-gray-900"
               >
                 Welcome to{' '}
-                <span className="text-black dark:text-white">
+                <span className="text-primary-600">
                   Abhaya
                 </span>
               </motion.h1>
@@ -49,7 +50,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-black dark:text-white max-w-2xl mx-auto"
+                className="text-xl md:text-2xl text-gray-600 max-w-2xl"
               >
                 A modern programming language designed for simplicity, efficiency, and developer happiness.
               </motion.p>
@@ -58,21 +59,35 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col sm:flex-row justify-center gap-4"
+                className="flex flex-col sm:flex-row gap-4"
               >
                 <Link
                   to="/abhaya"
-                  className="bg-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-black hover:bg-gray-100"
+                  className="bg-black text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-800"
                 >
                   Get Started
                 </Link>
                 <Link
                   to="/projects"
-                  className="btn-outline px-8 py-4 text-lg font-semibold rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 text-black dark:text-white"
+                  className="border-2 border-black px-8 py-4 text-lg font-semibold rounded-xl hover:bg-gray-50 transition-all duration-300 text-black"
                 >
                   View Projects
                 </Link>
               </motion.div>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={abhaya1}
+                alt="Abhaya Hero"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
         </div>

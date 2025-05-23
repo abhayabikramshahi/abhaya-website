@@ -11,6 +11,7 @@ import Skills from './Pages/Skills'
 import Projects from './Pages/Projects'
 import Abhaya from './Pages/Abhaya'
 import Documentation from './Pages/Documentation'
+import Gallery from './Pages/Gallery'
 
 import { motion } from 'framer-motion'
 import './App.css'
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/abhaya" element={<Abhaya />} />
                 <Route path="/documentation" element={<Documentation />} />
+                <Route path="/gallery" element={<Gallery />} />
               </Routes>
             </main>
             <Footer />
