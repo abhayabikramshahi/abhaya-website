@@ -50,9 +50,9 @@ export default function Footer() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400">Abhaya Language</h3>
+              <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400">Abhaya Bikram Shahi <span className='font-semibold'>( Abhaya Os)</span></h3>
               <p className="text-secondary-600 dark:text-secondary-300">
-                A modern programming language designed for simplicity and efficiency.
+                A modern way to see Abhaya Bikram Shahi portfolio from a digital way.....
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((link) => (
@@ -93,13 +93,13 @@ export default function Footer() {
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 text-secondary-600 dark:text-secondary-300">
                   <EnvelopeIcon className="w-5 h-5" />
-                  <a href="mailto:contact@example.com" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
-                    contact@example.com
+                  <a href="mailto:abhayabikramshahiofficial@gmail.com" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
+                    abhayabikramshahiofficial@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-2 text-secondary-600 dark:text-secondary-300">
                   <MapPinIcon className="w-5 h-5" />
-                  <span>San Francisco, CA</span>
+                  <span>Kalikot, Nepal</span>
                 </div>
               </div>
             </div>
@@ -107,10 +107,10 @@ export default function Footer() {
           
           <div className="border-t border-secondary-200 dark:border-secondary-700 pt-6 flex flex-col md:flex-row justify-between items-center">
             <p className="text-secondary-600 dark:text-secondary-300 mb-4 md:mb-0">
-              © {currentYear} Abhaya Language. All rights reserved.
+              © {currentYear} Abhaya OS. All rights reserved.
             </p>
             <p className="text-secondary-500 dark:text-secondary-400 text-sm">
-              Designed with ❤️ by Your Name
+              Designed with ❤️ by <span className='font-bold'>Abhaya Bikram Shahi</span>
             </p>
           </div>
         </div>

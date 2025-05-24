@@ -12,7 +12,7 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: CodeBracketIcon,
-    skills: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "TypeScript"]
+    skills: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"]
   },
   {
     title: "Mobile Development",

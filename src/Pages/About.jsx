@@ -146,8 +146,8 @@ export default function About() {
                   <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
                     <li>Abhaya Infoys</li>
                     <li>Digital Yaklabs</li>
-                    <li>Create Crafting Groups</li>
-                    <li>Nepal Coding House Limited</li>
+                    <li>Create Crafters Groups Of Company</li>
+                    <li>Nepal Coding House Private Limited</li>
                   </ul>
                 </div>
               </div>

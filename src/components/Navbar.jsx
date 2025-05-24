@@ -93,7 +93,7 @@ export default function Navbar() {
               className="text-2xl font-bold text-black hover:text-gray-700 transition-colors duration-300"
               aria-label="Abhaya - Home"
             >
-              Abhaya
+              Abhaya (OS)
             </Link>
 
             {/* Desktop Navigation Links */}
