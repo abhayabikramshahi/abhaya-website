@@ -50,6 +50,13 @@ const sections = [
     description: 'Browse through my work gallery'
   },
   { 
+    id: 'linkedin', 
+    icon: LanguageIcon, 
+    label: 'LinkedIn Feed', 
+    path: '/linkedin',
+    description: 'View my latest LinkedIn updates'
+  },
+  { 
     id: 'abhaya', 
     icon: LanguageIcon, 
     label: 'Abhaya Language', 
