@@ -15,8 +15,8 @@ export default function About() {
     <>
       <SEO 
         title="About Me"
-        description="Learn more about my journey, expertise, and passion for technology and software development."
-        keywords="about me, software developer, full stack developer, technology enthusiast, entrepreneur"
+        description="Learn more about my journey as a successful entrepreneur, owner of 6 companies, and business leader."
+        keywords="about me, entrepreneur, business owner, company founder, business leader, technology entrepreneur"
       />
       
       <motion.div
@@ -29,7 +29,7 @@ export default function About() {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-black dark:text-white mb-4">About Me</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Young Full Stack Developer & Entrepreneur passionate about creating innovative solutions
+            Successful Entrepreneur & Business Leader with a portfolio of 6 thriving companies
           </p>
         </div>
 
@@ -50,75 +50,62 @@ export default function About() {
                 <h2 className="text-2xl font-semibold text-black dark:text-white">Who I Am</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                At 15 years old, I am a full-stack developer and entrepreneur with a passion for creating innovative solutions. 
-                My journey combines technical expertise with entrepreneurial spirit, leading to the creation 
-                of multiple successful ventures in technology and digital services.
+                At 15 years old, I am a successful entrepreneur and business leader with a portfolio of 6 thriving companies. 
+                My journey combines business acumen with technological innovation, leading to the creation and successful 
+                management of multiple ventures across various industries. I've demonstrated exceptional leadership and 
+                strategic thinking in building and scaling these businesses.
               </p>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <BookOpenIcon className="w-6 h-6 text-black dark:text-white" />
+                  <BuildingOfficeIcon className="w-6 h-6 text-black dark:text-white" />
                 </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Education Journey</h2>
+                <h2 className="text-2xl font-semibold text-black dark:text-white">Business Portfolio</h2>
               </div>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Badimalika Secondary School</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Current - Class 10 (SEE)</p>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Mountain Driftz</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Fashion & Retail</p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Currently pursuing my secondary education while actively contributing to the school's digital transformation
+                    A premium clothing brand that has successfully established its presence in the Nepali market, 
+                    combining traditional aesthetics with modern fashion trends.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Nava Prabhat English Boarding School</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Classes 5-6</p>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Abhaya Infoys</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Technology Solutions</p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Completed middle school education with a focus on English language and general studies
+                    Leading provider of innovative technology solutions and digital transformation services.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">New Light Education Home</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Nursery to Class 4</p>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Digital Yaklabs</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Digital Innovation</p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Started my educational journey with foundational learning and early development
+                    Pioneering digital solutions and cutting-edge technology development.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <BriefcaseIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Professional Experience</h2>
-              </div>
-              <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Web & App Developer — Saga Service</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Jan 2024 – Present</p>
-                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                    <li>Leading front-end and back-end development using modern stacks (React, Node.js, Firebase)</li>
-                    <li>Designing and developing dynamic, user-focused websites and mobile apps</li>
-                    <li>Collaborating with UI/UX designers for clean, responsive interfaces</li>
-                  </ul>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Create Crafters Groups</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Creative Solutions</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    A conglomerate of creative businesses focused on innovative solutions.
+                  </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Tech Developer — Badimalika Secondary School</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Oct 2023 – Present</p>
-                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                    <li>Developed official school website and integrated digital results system</li>
-                    <li>Implemented JSON-based data management for class-wise results</li>
-                    <li>Led school's digital transformation initiative</li>
-                  </ul>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Nepal Coding House</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Education & Training</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Premier coding education and professional training institution.
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column - Entrepreneurship & Goals */}
+          {/* Right Column - Business Achievements & Vision */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -128,74 +115,69 @@ export default function About() {
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <BuildingOfficeIcon className="w-6 h-6 text-black dark:text-white" />
+                  <RocketLaunchIcon className="w-6 h-6 text-black dark:text-white" />
                 </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Entrepreneurial Ventures</h2>
+                <h2 className="text-2xl font-semibold text-black dark:text-white">Business Achievements</h2>
               </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Founder — Mountain Driftz</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Nov 2024 – Present</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Founded and built an online presence for a Nepali-based clothing brand, creating a sleek 
-                    e-commerce interface using modern web technologies to promote local fashion.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Other Ventures</h3>
-                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                    <li>Abhaya Infoys</li>
-                    <li>Digital Yaklabs</li>
-                    <li>Create Crafters Groups Of Company</li>
-                    <li>Nepal Coding House Private Limited</li>
-                  </ul>
-                </div>
+              <div className="space-y-4">
+                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>Successfully established and scaled 6 diverse companies</li>
+                  <li>Created numerous employment opportunities in the local market</li>
+                  <li>Implemented innovative business strategies across multiple industries</li>
+                  <li>Built strong brand presence in the Nepali market</li>
+                  <li>Demonstrated exceptional leadership in managing multiple ventures</li>
+                </ul>
               </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <RocketLaunchIcon className="w-6 h-6 text-black dark:text-white" />
+                  <HeartIcon className="w-6 h-6 text-black dark:text-white" />
                 </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Goals & Aspirations</h2>
+                <h2 className="text-2xl font-semibold text-black dark:text-white">Vision & Mission</h2>
               </div>
               <div className="space-y-4">
                 <p className="text-gray-600 dark:text-gray-300">
-                  Despite my young age, I am constantly striving to improve my skills and knowledge in the ever-evolving field of technology. 
-                  My goals include:
+                  My vision is to transform Nepal's business landscape through innovation and entrepreneurship. 
+                  I am committed to:
                 </p>
                 <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>Expanding my entrepreneurial ventures in technology</li>
-                  <li>Contributing to Nepal's tech ecosystem</li>
-                  <li>Creating innovative solutions for local businesses</li>
-                  <li>Mentoring aspiring developers and entrepreneurs</li>
+                  <li>Expanding business operations across South Asia</li>
+                  <li>Creating more employment opportunities</li>
+                  <li>Promoting innovation in traditional industries</li>
+                  <li>Mentoring young entrepreneurs</li>
+                  <li>Contributing to Nepal's economic growth</li>
                 </ul>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                  <BookOpenIcon className="w-6 h-6 text-black dark:text-white" />
+                </div>
+                <h2 className="text-2xl font-semibold text-black dark:text-white">Education & Growth</h2>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Badimalika Secondary School</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Current - Class 10 (SEE)</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Balancing academic excellence with entrepreneurial responsibilities
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-black dark:text-white">Continuous Learning</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Actively pursuing business education and staying updated with global market trends while 
+                    managing multiple companies
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom Section - Personal Interests */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg"
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-              <HeartIcon className="w-6 h-6 text-black dark:text-white" />
-            </div>
-            <h2 className="text-2xl font-semibold text-black dark:text-white">Personal Interests</h2>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300">
-            Beyond coding and entrepreneurship, I am passionate about contributing to Nepal's growing tech community. 
-            I enjoy exploring new technologies, participating in tech communities, and staying updated with the latest 
-            industry trends. My focus is on creating solutions that make a positive impact in the local context while 
-            maintaining global standards, all while balancing my academic responsibilities.
-          </p>
-        </motion.div>
       </motion.div>
     </>
   )
