@@ -1,14 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  HomeIcon, 
-  CodeBracketIcon, 
-  BriefcaseIcon, 
-  UserIcon,
-  LanguageIcon,
   Bars3Icon,
   XMarkIcon,
-  PhotoIcon
 } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
@@ -16,53 +10,52 @@ import { useTheme } from '../context/ThemeContext'
 const sections = [
   { 
     id: 'home', 
-    icon: HomeIcon, 
     label: 'Home', 
     path: '/',
     description: 'Go to homepage'
   },
   { 
     id: 'about', 
-    icon: UserIcon, 
     label: 'About Me', 
     path: '/about',
     description: 'Learn more about me and my background'
   },
   { 
     id: 'skills', 
-    icon: CodeBracketIcon, 
     label: 'Technical Skills', 
     path: '/skills',
     description: 'View my technical expertise and capabilities'
   },
   { 
     id: 'projects', 
-    icon: BriefcaseIcon, 
     label: 'My Projects', 
     path: '/projects',
     description: 'Explore my portfolio of projects'
   },
   { 
     id: 'gallery', 
-    icon: PhotoIcon, 
     label: 'Photo Gallery', 
     path: '/gallery',
     description: 'Browse through my work gallery'
   },
   { 
     id: 'linkedin', 
-    icon: LanguageIcon, 
     label: 'LinkedIn Feed', 
     path: '/linkedin',
     description: 'View my latest LinkedIn updates'
   },
   { 
     id: 'abhaya', 
-    icon: LanguageIcon, 
     label: 'Abhaya Language', 
     path: '/abhaya',
     description: 'Learn about the Abhaya programming language'
   },
+  {
+    id: 'educational-videos',
+    label: 'Educational Videos',
+    path: '/educational-videos',
+    description: 'Watch educational videos'
+  }
 ]
 
 export default function Navbar() {
@@ -105,7 +98,7 @@ export default function Navbar() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center ml-auto">
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-4">
                 {sections.map((section) => (
                   <Link
                     key={section.id}
@@ -127,12 +120,7 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <section.icon 
-                      className={`w-5 h-5 mr-2 relative z-10 ${
-                        isActive(section.path) ? 'text-black' : 'text-current'
-                      }`} 
-                      aria-hidden="true"
-                    />
+                    
                     <span className="relative z-10 whitespace-nowrap">{section.label}</span>
                   </Link>
                 ))}
@@ -173,7 +161,7 @@ export default function Navbar() {
             aria-label="Mobile navigation"
           >
             <div className="container mx-auto px-4 py-2">
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col space-y-2">
                 {sections.map((section) => (
                   <Link
                     key={section.id}
@@ -196,12 +184,7 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <section.icon 
-                      className={`w-5 h-5 mr-3 relative z-10 ${
-                        isActive(section.path) ? 'text-black' : 'text-current'
-                      }`} 
-                      aria-hidden="true"
-                    />
+                    
                     <span className="relative z-10">{section.label}</span>
                   </Link>
                 ))}

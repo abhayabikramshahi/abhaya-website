@@ -14,6 +14,7 @@ import Abhaya from './Pages/Abhaya'
 import Documentation from './Pages/Documentation'
 import Gallery from './Pages/Gallery'
 import LinkedInFeed from './Pages/LinkedInFeed'
+import Educational from './Pages/Educational'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
@@ -48,6 +49,7 @@ const AnimatedRoutes = () => {
         <Route path="/documentation" element={<PageTransition><Documentation /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
         <Route path="/linkedin" element={<PageTransition><LinkedInFeed /></PageTransition>} />
+        <Route path="/educational-videos" element={<PageTransition><Educational /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )
