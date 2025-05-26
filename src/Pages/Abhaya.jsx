@@ -15,11 +15,32 @@ import { useState } from 'react'
 import SEO from '../components/SEO'
 import { Link } from 'react-router-dom'
 
+// Custom chapde function that accepts any syntax
+const chapde = (content) => {
+  try {
+    // Convert content to string if it's not already
+    const contentStr = String(content);
+    
+    // Return the content wrapped in a styled div
+    return (
+      <div className="chapde-container p-4 my-4 bg-gray-100 rounded-lg border border-gray-300">
+        <pre className="whitespace-pre-wrap break-words">
+          {contentStr}
+        </pre>
+      </div>
+    );
+  } catch (error) {
+    console.error('Error in chapde:', error);
+    return null;
+  }
+};
+
 export default function Abhaya() {
-  const [code, setCode] = useState('chpade("hello")')
+  const [code, setCode] = useState('// Write your code here\nchapde("Hello, World!")')
   const [output, setOutput] = useState('')
   const [hasRun, setHasRun] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [variables, setVariables] = useState({})
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code)
@@ -30,16 +51,69 @@ export default function Abhaya() {
   const runCode = () => {
     try {
       setHasRun(true)
-      // Strict validation for chpade syntax
-      const chpadeRegex = /^chpade\("([^"]*)"\)$/
-      if (chpadeRegex.test(code)) {
-        const result = code.match(chpadeRegex)[1]
-        setOutput(result)
-      } else {
-        setOutput('Error: Invalid syntax. Use chpade("text") with double quotes')
+      let result = ''
+      let currentVariables = { ...variables }
+
+      // Split code into lines and process each line
+      const lines = code.split('\n')
+      
+      for (let line of lines) {
+        // Skip comments
+        if (line.trim().startsWith('//')) continue
+
+        // Handle variable declaration
+        if (line.includes('karya')) {
+          const [_, varName, value] = line.match(/karya\s+(\w+)\s*=\s*(.+)/) || []
+          if (varName && value) {
+            // Remove quotes from the value
+            const cleanValue = value.trim().replace(/^["']|["']$/g, '')
+            currentVariables[varName] = cleanValue
+            // Add variable declaration to output in the format "Name: value"
+            result += `${varName}: ${cleanValue}\n`
+          }
+          continue
+        }
+
+        // Handle function declaration
+        if (line.includes('karan-gar')) {
+          // Store function definition for later use
+          continue
+        }
+
+        // Handle chapde command
+        if (line.includes('chapde(')) {
+          const match = line.match(/chapde\((.*)\)/)
+          if (match) {
+            let content = match[1]
+            
+            // Replace variables in the content
+            Object.keys(currentVariables).forEach(varName => {
+              const regex = new RegExp(varName, 'g')
+              content = content.replace(regex, currentVariables[varName])
+            })
+
+            // Remove quotes and add to result
+            content = content.replace(/^["']|["']$/g, '')
+            result += content + '\n'
+          }
+        }
       }
+
+      // Update variables state
+      setVariables(currentVariables)
+
+      // Display the result
+      setOutput(
+        <div className="chapde-output p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          {result.trim()}
+        </div>
+      )
     } catch (error) {
-      setOutput('Error: Invalid syntax')
+      setOutput(
+        <div className="text-red-500 dark:text-red-400 font-mono">
+          Error: {error.message}
+        </div>
+      )
     }
   }
 
@@ -122,26 +196,50 @@ export default function Abhaya() {
                   setHasRun(false)
                   setOutput('')
                 }}
-                className="w-full h-32 bg-gray-900 text-white p-4 rounded-lg font-mono resize-none focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                className="w-full h-48 bg-gray-900 text-white p-4 rounded-lg font-mono resize-none focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
               />
-              <div className="mt-4 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">
-                <h4 className="text-sm font-semibold text-black dark:text-white mb-2">Output:</h4>
-                <p className="text-black dark:text-white font-mono min-h-[1.5rem]">
-                  {hasRun ? output : ''}
-                </p>
+              {/* Output Section */}
+              <div className="mt-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-sm font-semibold text-black dark:text-white">Output:</h4>
+                  {hasRun && (
+                    <button 
+                      onClick={() => {
+                        setHasRun(false)
+                        setOutput('')
+                      }}
+                      className="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+                <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-lg min-h-[60px]">
+                  {hasRun ? (
+                    <div className="text-black dark:text-white font-mono">
+                      {output}
+                    </div>
+                  ) : (
+                    <div className="text-gray-400 dark:text-gray-500 font-mono italic">
+                      Click "Run" to see the output
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="mt-4 space-y-2">
                 <p className="text-sm text-black dark:text-white">
-                  Try: chpade("hello")
+                  Examples:
                 </p>
-                <div className="flex items-center gap-2 text-sm text-black dark:text-white">
+                <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  <p>• Basic output: chapde("Hello, World!")</p>
+                  <p>• Variables: karya name = "John"</p>
+                  <p>• Using variables: chapde("Hello, " + name)</p>
+                  <p>• Comments: // This is a comment</p>
+                  <p>• Functions: karan-gar greet(name) {`{`} chapde("Hello, " + name) {`}`}</p>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-4">
                   <MagnifyingGlassIcon className="w-4 h-4" />
                   <p>Search online for more examples and documentation</p>
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  <p>• Use double quotes for strings</p>
-                  <p>• Make sure to include parentheses</p>
-                  <p>• Check the documentation for more commands</p>
                 </div>
               </div>
             </div>
@@ -166,18 +264,18 @@ export default function Abhaya() {
               {[
                 {
                   icon: SparklesIcon,
-                  title: "Modern Syntax",
-                  description: "Clean and intuitive syntax that's easy to learn and maintain"
+                  title: "Simple Syntax",
+                  description: "Easy to learn with intuitive commands like chapde, karya, and karan-gar"
                 },
                 {
                   icon: CodeBracketIcon,
                   title: "Modern Features",
-                  description: "Combination of modern programming concepts and language features"
+                  description: "Support for variables, functions, and comments"
                 },
                 {
                   icon: BookOpenIcon,
                   title: "Easy Learning",
-                  description: "Simple and straightforward learning process for beginners"
+                  description: "Perfect for beginners with clear and straightforward syntax"
                 }
               ].map((feature, index) => (
                 <motion.div
