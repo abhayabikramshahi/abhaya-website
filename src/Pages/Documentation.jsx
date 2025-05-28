@@ -48,11 +48,6 @@ export default function Documentation() {
           title: "Variables",
           description: "Working with variables in Abhaya.",
           code: 'karya Name = Name'
-        },
-        {
-          title: "Functions",
-          description: "Creating and using functions.",
-          code: 'karan-gar greet(name) {\n  chpade("Hello, " + name)\n}'
         }
       ]
     }

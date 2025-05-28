@@ -40,7 +40,7 @@ const Preloader = () => {
         >
           {/* Facebook-like logo */}
           <motion.div
-            className="absolute inset-0 bg-blue-600 rounded-lg"
+            className="absolute text-center inset-0 bg-blue-600 rounded-lg"
             animate={{
               scale: [1, 1.05, 1],
               rotate: [0, 2, 0],
