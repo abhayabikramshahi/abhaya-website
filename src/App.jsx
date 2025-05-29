@@ -135,22 +135,20 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
-          <AnimatePresence mode="wait">
-            <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-              <SEO
-                title="Abhaya - Full Stack Developer"
-                description="Meet Abhaya Bikram Shahi, a tech entrepreneur, web/app developer, and digital creator from Nepal. Explore his modern portfolio and startup journey."
-                keywords="Full Stack Developer, React, Node.js, JavaScript, Web Development, Portfolio"
-              />
+          <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+            <SEO
+              title="Abhaya - Full Stack Developer"
+              description="Meet Abhaya Bikram Shahi, a tech entrepreneur, web/app developer, and digital creator from Nepal. Explore his modern portfolio and startup journey."
+              keywords="Full Stack Developer, React, Node.js, JavaScript, Web Development, Portfolio"
+            />
 
-              <Preloader />
-              <Navbar />
-              <main className="pt-16">
-                <AnimatedRoutes />
-              </main>
-              <Footer />
-            </div>
-          </AnimatePresence>
+            <Preloader />
+            <Navbar />
+            <main className="pt-16">
+              <AnimatedRoutes />
+            </main>
+            <Footer />
+          </div>
         </Router>
       </ThemeProvider>
     </HelmetProvider>

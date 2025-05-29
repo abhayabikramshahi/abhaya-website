@@ -14,7 +14,7 @@ const Preloader = () => {
       setIsLoading(true)
       const timer = setTimeout(() => {
         setIsLoading(false)
-      }, 2300) // 2.3 seconds loading time
+      }, 2000) // 2 seconds loading time
 
       return () => clearTimeout(timer)
     } else {
@@ -29,40 +29,56 @@ const Preloader = () => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[99] flex items-center justify-center bg-white dark:bg-gray-900"
+      className="fixed inset-0 z-[99] flex items-center justify-center bg-black"
     >
       <div className="text-center">
         <motion.div
-          className="relative w-20 h-20 mb-4"
+          className="relative w-24 h-24 mb-8"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Facebook-like logo */}
+          {/* Animated border */}
           <motion.div
-            className="absolute text-center inset-0 bg-blue-600 rounded-lg"
+            className="absolute inset-0 border-4 border-white rounded-full"
             animate={{
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, 0],
+              scale: [1, 1.1, 1],
+              rotate: [0, 360],
             }}
             transition={{
-              duration: 2.3,
+              duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "linear"
             }}
           />
+          
+          {/* Inner circle */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold"
+            className="absolute inset-4 border-4 border-white rounded-full"
             animate={{
-              scale: [1, 1.05, 1],
+              scale: [1, 0.9, 1],
+              rotate: [0, -360],
             }}
             transition={{
-              duration: 2.3,
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+
+          {/* Center dot */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center"
+            animate={{
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 1,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           >
-            A
+            <div className="w-4 h-4 bg-white rounded-full" />
           </motion.div>
         </motion.div>
         
@@ -73,32 +89,45 @@ const Preloader = () => {
           className="space-y-2"
         >
           <motion.h2
-            className="text-2xl font-bold text-black dark:text-white"
+            className="text-2xl font-bold text-white"
             animate={{
-              opacity: [0.6, 1, 0.6],
+              opacity: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 2.3,
+              duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           >
-            Powered by
+            Loading
           </motion.h2>
-          <motion.p
-            className="text-lg text-gray-600 dark:text-gray-400"
+          <motion.div
+            className="flex justify-center space-x-1"
             animate={{
-              opacity: [0.6, 1, 0.6],
+              opacity: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 2.3,
+              duration: 2,
               repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.2
+              ease: "easeInOut"
             }}
           >
-            Abhaya
-          </motion.p>
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="w-2 h-2 bg-white rounded-full"
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  delay: i * 0.2,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>

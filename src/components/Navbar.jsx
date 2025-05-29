@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Bars3Icon,
-  XMarkIcon,
+  XMarkIcon
 } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
@@ -55,7 +55,8 @@ const sections = [
 export default function Navbar() {
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { isDarkMode } = useTheme()
+  const { getThemeColors } = useTheme()
+  const themeColors = getThemeColors()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -75,7 +76,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 bg-white shadow-md z-50"
+        className={`fixed top-0 left-0 right-0 ${themeColors.background} shadow-md z-50`}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -84,7 +85,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link 
               to="/" 
-              className="text-2xl font-bold text-black hover:text-gray-700 transition-colors duration-300"
+              className={`text-2xl font-bold ${themeColors.text} hover:opacity-80 transition-opacity duration-300`}
               aria-label="Abhaya - Home"
             >
               Abhaya (OS)
@@ -99,8 +100,8 @@ export default function Navbar() {
                     to={section.path}
                     className={`group relative flex items-center px-2 py-2 rounded-lg transition-all duration-300 ${
                       isActive(section.path)
-                        ? 'text-black font-medium'
-                        : 'text-gray-600 hover:text-black'
+                        ? `${themeColors.text} font-medium`
+                        : `${themeColors.secondary} hover:${themeColors.text}`
                     }`}
                     aria-current={isActive(section.path) ? 'page' : undefined}
                     aria-label={section.description}
@@ -109,7 +110,7 @@ export default function Navbar() {
                     {isActive(section.path) && (
                       <motion.div
                         layoutId="activeNavItem"
-                        className="absolute inset-0 bg-gray-100 rounded-lg"
+                        className={`absolute inset-0 ${themeColors.accent} rounded-lg`}
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
@@ -122,11 +123,11 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center ml-4">
+            <div className="flex items-center">
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 transition-colors duration-300"
+                className={`md:hidden p-2 rounded-lg ${themeColors.button} transition-colors duration-300`}
                 aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
@@ -149,7 +150,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 left-0 right-0 bg-white shadow-lg z-40 md:hidden"
+            className={`fixed top-20 left-0 right-0 ${themeColors.background} shadow-lg z-40 md:hidden`}
             id="mobile-menu"
             role="navigation"
             aria-label="Mobile navigation"
@@ -162,8 +163,8 @@ export default function Navbar() {
                     to={section.path}
                     className={`group relative flex items-center px-4 py-3 rounded-lg ${
                       isActive(section.path)
-                        ? 'text-black font-medium bg-gray-100'
-                        : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                        ? `${themeColors.text} font-medium ${themeColors.accent}`
+                        : `${themeColors.secondary} hover:${themeColors.text} ${themeColors.hover}`
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     aria-current={isActive(section.path) ? 'page' : undefined}
@@ -173,7 +174,7 @@ export default function Navbar() {
                     {isActive(section.path) && (
                       <motion.div
                         layoutId="activeMobileNavItem"
-                        className="absolute inset-0 bg-gray-100 rounded-lg"
+                        className={`absolute inset-0 ${themeColors.accent} rounded-lg`}
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
