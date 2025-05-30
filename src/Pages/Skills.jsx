@@ -5,7 +5,13 @@ import {
   ServerIcon,
   PaintBrushIcon,
   CircleStackIcon,
-  CloudIcon
+  CloudIcon,
+  RocketLaunchIcon,
+  CommandLineIcon,
+  CpuChipIcon,
+  BeakerIcon,
+  WrenchScrewdriverIcon,
+  GlobeAltIcon
 } from '@heroicons/react/24/outline'
 import { useTheme } from '../context/ThemeContext'
 
@@ -13,37 +19,69 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: CodeBracketIcon,
-    skills: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
+    skills: [
+      { name: "React", icon: "⚛️" },
+      { name: "JavaScript", icon: "📜" },
+      { name: "HTML5", icon: "🌐" },
+      { name: "CSS3", icon: "🎨" },
+      { name: "Tailwind CSS", icon: "🎯" },
+      { name: "Bootstrap", icon: "🎪" }
+    ],
     description: "Building responsive and interactive user interfaces with modern web technologies"
   },
   {
     title: "Mobile Development",
     icon: DevicePhoneMobileIcon,
-    skills: ["Java", "XML"],
+    skills: [
+      { name: "Java", icon: "☕" },
+      { name: "XML", icon: "📱" },
+      { name: "Android", icon: "🤖" }
+    ],
     description: "Creating native mobile applications for Android platform"
   },
   {
     title: "Backend Development",
     icon: ServerIcon,
-    skills: ["PHP"],
-    description: "Developing robust server-side applications and APIs"
+    skills: [
+      { name: "Python", icon: "🐍" },
+      { name: "MediaPipe", icon: "👁️" },
+      { name: "PyAutoGUI", icon: "🤖" },
+      { name: "Pandas", icon: "📊" },
+      { name: "PHP", icon: "🐘" },
+      { name: "Node.js", icon: "🟢" },
+      { name: "Express", icon: "🚂" }
+    ],
+    description: "Developing robust server-side applications, automation scripts, and data processing solutions"
   },
   {
     title: "UI/UX Design",
     icon: PaintBrushIcon,
-    skills: ["Figma", "User Research", "Wireframing", "Prototyping"],
+    skills: [
+      { name: "Figma", icon: "🎨" },
+      { name: "User Research", icon: "🔍" },
+      { name: "Wireframing", icon: "📝" },
+      { name: "Prototyping", icon: "🎯" }
+    ],
     description: "Designing intuitive and engaging user experiences"
   },
   {
     title: "Database",
     icon: CircleStackIcon,
-    skills: ["SQL"],
+    skills: [
+      { name: "SQL", icon: "🗄️" },
+      { name: "MongoDB", icon: "🍃" },
+      { name: "Firebase", icon: "🔥" }
+    ],
     description: "Managing and optimizing database systems"
   },
   {
     title: "Cloud & DevOps",
     icon: CloudIcon,
-    skills: ["Docker", "Git"],
+    skills: [
+      { name: "Docker", icon: "🐳" },
+      { name: "Git", icon: "📦" },
+      { name: "AWS", icon: "☁️" }
+    ],
     description: "Implementing cloud solutions and managing development workflows"
   }
 ]
@@ -111,10 +149,15 @@ export default function Skills() {
                 scale: 1.02,
                 transition: { duration: 0.2 }
               }}
-              className={`${themeColors.background} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${themeColors.border}`}
+              className={`${themeColors.background} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${themeColors.border} relative overflow-hidden group`}
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`${themeColors.accent} p-3 rounded-xl`}>
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <category.icon className="w-32 h-32 absolute -right-8 -bottom-8 transform rotate-12" />
+              </div>
+
+              <div className="flex items-center gap-4 mb-6 relative">
+                <div className={`${themeColors.accent} p-3 rounded-xl group-hover:scale-110 transition-transform duration-300`}>
                   <category.icon className={`w-7 h-7 ${themeColors.primary}`} />
                 </div>
                 <h3 className={`text-2xl font-bold ${themeColors.text}`}>
@@ -122,18 +165,19 @@ export default function Skills() {
                 </h3>
               </div>
               
-              <p className={`${themeColors.secondary} mb-6`}>
+              <p className={`${themeColors.secondary} mb-6 relative`}>
                 {category.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 relative">
                 {category.skills.map((skill) => (
                   <motion.span
-                    key={skill}
+                    key={skill.name}
                     whileHover={{ scale: 1.05 }}
-                    className={`px-4 py-2 ${themeColors.accent} ${themeColors.text} rounded-full text-sm font-medium`}
+                    className={`px-4 py-2 ${themeColors.accent} ${themeColors.text} rounded-full text-sm font-medium flex items-center gap-2`}
                   >
-                    {skill}
+                    <span>{skill.icon}</span>
+                    {skill.name}
                   </motion.span>
                 ))}
               </div>
@@ -146,28 +190,30 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-20 text-center"
+          className="mt-20"
         >
-          <h2 className={`text-3xl font-bold ${themeColors.text} mb-4`}>
-            Years of Experience
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { number: "4+", label: "Years of Experience" },
-              { number: "3+", label: "Projects Completed" },
-              { number: "10+", label: "Happy Clients" }
+              { number: "4+", label: "Years of Experience", icon: RocketLaunchIcon },
+              { number: "3+", label: "Projects Completed", icon: CommandLineIcon },
+              { number: "10+", label: "Happy Clients", icon: BeakerIcon }
             ].map((stat) => (
               <motion.div
                 key={stat.label}
                 whileHover={{ scale: 1.05 }}
-                className={`${themeColors.background} p-6 rounded-xl shadow-lg ${themeColors.border} border`}
+                className={`${themeColors.background} p-8 rounded-2xl shadow-lg ${themeColors.border} border relative overflow-hidden group`}
               >
-                <h3 className={`text-4xl font-bold ${themeColors.primary} mb-2`}>
-                  {stat.number}
-                </h3>
-                <p className={`${themeColors.secondary}`}>
-                  {stat.label}
-                </p>
+                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                  <stat.icon className="w-24 h-24 absolute -right-6 -bottom-6 transform rotate-12" />
+                </div>
+                <div className="relative">
+                  <h3 className={`text-5xl font-bold ${themeColors.primary} mb-2`}>
+                    {stat.number}
+                  </h3>
+                  <p className={`${themeColors.secondary} text-lg`}>
+                    {stat.label}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

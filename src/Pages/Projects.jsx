@@ -5,8 +5,11 @@ import {
   DevicePhoneMobileIcon,
   ServerIcon,
   CommandLineIcon,
-  DocumentTextIcon
+  DocumentTextIcon,
+  BeakerIcon,
+  CpuChipIcon
 } from '@heroicons/react/24/outline'
+import { useTheme } from '../context/ThemeContext'
 
 const projects = [
   {
@@ -15,6 +18,20 @@ const projects = [
     icon: CommandLineIcon,
     technologies: ['JavaScript', 'Python', 'Language Design', 'Compiler Design'],
     category: 'Language Development'
+  },
+  {
+    title: 'AI-Powered Automation',
+    description: 'Automated system using Python, MediaPipe, and PyAutoGUI for intelligent task automation and computer vision applications.',
+    icon: CpuChipIcon,
+    technologies: ['Python', 'MediaPipe', 'PyAutoGUI', 'Computer Vision'],
+    category: 'AI & Automation'
+  },
+  {
+    title: 'Data Analysis Platform',
+    description: 'Comprehensive data analysis and visualization platform built with Python and Pandas for efficient data processing.',
+    icon: BeakerIcon,
+    technologies: ['Python', 'Pandas', 'Data Analysis', 'Visualization'],
+    category: 'Data Science'
   },
   {
     title: 'Badimalika School Website',
@@ -54,6 +71,9 @@ const projects = [
 ]
 
 export default function Projects() {
+  const { getThemeColors } = useTheme()
+  const themeColors = getThemeColors()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -63,8 +83,8 @@ export default function Projects() {
     >
       {/* Header Section */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-black dark:text-white mb-4">My Projects</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <h1 className={`text-4xl font-bold ${themeColors.text} mb-4`}>My Projects</h1>
+        <p className={`text-xl ${themeColors.secondary} max-w-2xl mx-auto`}>
           A collection of my work showcasing various technologies and solutions
         </p>
       </div>
@@ -76,31 +96,40 @@ export default function Projects() {
             key={project.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.02 }}
-            className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
+            className={`${themeColors.background} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${themeColors.border} relative overflow-hidden group`}
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <project.icon className="w-6 h-6 text-black dark:text-white" />
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+              <project.icon className="w-32 h-32 absolute -right-8 -bottom-8 transform rotate-12" />
+            </div>
+
+            <div className="flex items-center gap-4 mb-6 relative">
+              <div className={`${themeColors.accent} p-3 rounded-xl group-hover:scale-110 transition-transform duration-300`}>
+                <project.icon className={`w-7 h-7 ${themeColors.primary}`} />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-black dark:text-white">{project.title}</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{project.category}</p>
+                <h2 className={`text-xl font-semibold ${themeColors.text}`}>{project.title}</h2>
+                <p className={`text-sm ${themeColors.secondary}`}>{project.category}</p>
               </div>
             </div>
             
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className={`${themeColors.secondary} mb-6 relative`}>
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 relative">
               {project.technologies.map((tech) => (
-                <span
+                <motion.span
                   key={tech}
-                  className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  className={`px-4 py-2 ${themeColors.accent} ${themeColors.text} rounded-full text-sm font-medium`}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.div>
@@ -112,13 +141,15 @@ export default function Projects() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg"
+        className={`mt-16 ${themeColors.background} rounded-2xl p-8 shadow-lg border ${themeColors.border}`}
       >
-        <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">Technical Expertise</h2>
+        <h2 className={`text-2xl font-semibold ${themeColors.text} mb-4`}>Technical Expertise</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             'Frontend Development',
             'Backend Development',
+            'AI & Automation',
+            'Data Science',
             'Database Management',
             'UI/UX Design',
             'E-commerce Solutions',
@@ -126,9 +157,9 @@ export default function Projects() {
           ].map((skill) => (
             <div
               key={skill}
-              className="flex items-center gap-2 text-gray-600 dark:text-gray-300"
+              className={`flex items-center gap-2 ${themeColors.secondary}`}
             >
-              <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
+              <div className={`w-2 h-2 ${themeColors.accent} rounded-full`}></div>
               {skill}
             </div>
           ))}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
+import { PlayIcon } from '@heroicons/react/24/solid'
 
 export default function EducationalVideos() {
   const { isDarkMode } = useTheme()
@@ -8,19 +9,26 @@ export default function EducationalVideos() {
     {
       id: 'l30_W14nE3Q',
       title: 'Computer Science Class 10 Solution for 8 Marks 16 Number - Karnali Province | Code with Abhaya',
-      description: 'Computer Science Class 10 Solution for 8 Marks 16 Number - Karnali Province | Code with Abhaya'
+      description: 'Computer Science Class 10 Solution for 8 Marks 16 Number - Karnali Province | Code with Abhaya',
+      thumbnail: `https://img.youtube.com/vi/l30_W14nE3Q/maxresdefault.jpg`,
+      duration: '15:30',
+      views: '1.2K'
     },
     {
       id: 'oFDL1DIRfak',
       title: 'This is how you can create Jokes generator using Python',
       description: 'This is how you can create Jokes generator using Python "Random". | Code with Abhaya.',
-      textContent: 'This is how you can create Jokes generator using Python "Random". | Code with Abhaya.'
+      thumbnail: `https://img.youtube.com/vi/oFDL1DIRfak/maxresdefault.jpg`,
+      duration: '10:45',
+      views: '2.5K'
     },
     {
       id: 'aJkXSdNrSKI',
       title: 'How to make Navbar',
       description: 'How to make Navbar in "HTML CSS and JS" | Code with Abhaya',
-      textContent: 'How to make Navbar in "HTML CSS and JS" | Code with Abhaya'
+      thumbnail: `https://img.youtube.com/vi/aJkXSdNrSKI/maxresdefault.jpg`,
+      duration: '12:15',
+      views: '3.1K'
     }
   ]
 
@@ -41,64 +49,54 @@ export default function EducationalVideos() {
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } gap-8 items-center`}
+              transition={{ delay: index * 0.1 }}
+              className={`group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl ${
+                isDarkMode ? 'bg-gray-800' : 'bg-white'
+              }`}
             >
-              {/* Video Section */}
-              <div className="w-full lg:w-1/2">
-                <div className={`rounded-lg overflow-hidden shadow-lg ${
-                  isDarkMode ? 'bg-gray-800' : 'bg-white'
-                }`}>
-                  <div className="relative pb-[56.25%] h-0">
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src={`https://www.youtube.com/embed/${item.id}`}
-                      title={item.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {item.description}
-                    </p>
-                  </div>
+              {/* Video Thumbnail with Play Button */}
+              <div className="relative aspect-video">
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <PlayIcon className="w-16 h-16 text-white" />
+                </div>
+                <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                  {item.duration}
                 </div>
               </div>
 
-              {/* Text Content Section */}
-              <div className="w-full lg:w-1/2">
-                <div className={`p-8 rounded-lg ${
-                  isDarkMode ? 'bg-gray-800' : 'bg-gray-50'
-                }`}>
-                  <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    {item.textContent}
-                  </p>
-                  <div className="flex justify-end">
-                    <a
-                      href={`https://www.youtube.com/watch?v=${item.id}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`px-6 py-3 rounded-lg font-medium transition-colors duration-300 ${
-                        isDarkMode
-                          ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                          : 'bg-blue-500 hover:bg-blue-600 text-white'
-                      }`}
-                    >
-                      Watch on YouTube
-                    </a>
-                  </div>
+              {/* Video Info */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 line-clamp-2">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+                  {item.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    {item.views} views
+                  </span>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${item.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+                      isDarkMode
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                        : 'bg-blue-500 hover:bg-blue-600 text-white'
+                    }`}
+                  >
+                    Watch Now
+                  </a>
                 </div>
               </div>
             </motion.div>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 // Import images
 import abhaya1 from '../images/abhaya1.jpg';
@@ -14,48 +15,48 @@ const galleryImages = [
   {
     id: 1,
     src: abhaya1,
-    alt: 'Abhaya Project Showcase 1',
-    title: 'Project Showcase',
-    description: 'A glimpse of our innovative project development'
+    alt: 'Abhaya Project Showcase 1'
   },
   {
     id: 2,
     src: abhaya2,
-    alt: 'Abhaya Project Showcase 2',
-    title: 'Development Process',
-    description: 'Behind the scenes of our development workflow'
+    alt: 'Abhaya Project Showcase 2'
   },
   {
     id: 3,
     src: abhaya3,
-    alt: 'Abhaya Project Showcase 3',
-    title: 'Technical Excellence',
-    description: 'Demonstrating our technical capabilities'
+    alt: 'Abhaya Project Showcase 3'
   },
   {
     id: 4,
     src: abhaya4,
-    alt: 'Abhaya Project Showcase 4',
-    title: 'Project Innovation',
-    description: 'Showcasing our innovative solutions'
+    alt: 'Abhaya Project Showcase 4'
   },
   {
     id: 5,
     src: abhayaLogo,
-    alt: 'Abhaya Logo',
-    title: 'Brand Identity',
-    description: 'Our distinctive brand logo'
+    alt: 'Abhaya Logo'
   },
   {
     id: 6,
     src: working,
-    alt: 'Working Environment',
-    title: 'Development Environment',
-    description: 'Our professional working setup'
+    alt: 'Working Environment'
   }
 ];
 
 function Gallery() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseFullscreen = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <>
       <Helmet>
@@ -76,39 +77,76 @@ function Gallery() {
           Gallery
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className={`group relative overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800 
-                ${index % 2 === 0 ? 'md:translate-y-0' : 'md:translate-y-16'}`}
-            >
-              <div className="aspect-w-16 aspect-h-9">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          {galleryImages.map((image, index) => {
+            const isEven = index % 2 === 0;
+            const row = Math.floor(index / 3);
+            const isEvenRow = row % 2 === 0;
+            
+            return (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className={`group relative overflow-hidden rounded-lg shadow-lg aspect-square cursor-pointer
+                  ${isEvenRow 
+                    ? (isEven ? 'md:translate-y-0' : 'md:translate-y-24') 
+                    : (isEven ? 'md:translate-y-24' : 'md:translate-y-0')}`}
+                onClick={() => handleImageClick(image)}
+              >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{image.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{image.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+              </motion.div>
+            );
+          })}
         </div>
 
         {galleryImages.length === 0 && (
           <div className="text-center py-12">
             <p className="text-gray-600 dark:text-gray-400">
-              No images available in the gallery yet. Please add some images to get started.
+              No images available in the gallery yet.
             </p>
           </div>
         )}
+
+        {/* Fullscreen View */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+              onClick={handleCloseFullscreen}
+            >
+              <button
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-300"
+                onClick={handleCloseFullscreen}
+              >
+                <XMarkIcon className="w-8 h-8" />
+              </button>
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                className="relative max-w-7xl max-h-[90vh] mx-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-full max-h-[90vh] object-contain"
+                />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
