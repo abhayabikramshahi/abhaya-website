@@ -18,11 +18,11 @@ export default defineConfig(({ mode }) => ({
       brotliSize: true,
     }),
   ],
-  base: './',
+  base: process.env.VITE_BASE_URL || '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true,
+    sourcemap: false,
     minify: 'terser',
     terserOptions: {
       compress: {
