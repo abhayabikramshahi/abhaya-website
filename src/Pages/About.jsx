@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion'
 import { 
   UserIcon,
+  CodeBracketIcon,
   AcademicCapIcon,
-  BriefcaseIcon,
-  HeartIcon,
-  BuildingOfficeIcon,
-  RocketLaunchIcon,
-  BookOpenIcon
+  HeartIcon
 } from '@heroicons/react/24/outline'
 import SEO from '../components/SEO'
 
@@ -14,171 +11,130 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Me"
-        description="Learn more about my journey as a successful entrepreneur, owner of 6 companies, and business leader."
-        keywords="about me, entrepreneur, business owner, company founder, business leader, technology entrepreneur"
+        title="About Abhaya"
+        description="Learn about Abhaya - A modern programming language designed for simplicity and efficiency."
+        keywords="Abhaya language, programming language, about, creator"
+        type="website"
       />
-      
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
-      >
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-black dark:text-white mb-4">About Me</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Successful Entrepreneur & Business Leader with a portfolio of 6 thriving companies
-          </p>
-        </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Personal Info & Education */}
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto text-center"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <UserIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Who I Am</h2>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300">
-                At 15 years old, I am a successful entrepreneur and business leader with a portfolio of 6 thriving companies. 
-                My journey combines business acumen with technological innovation, leading to the creation and successful 
-                management of multiple ventures across various industries. I've demonstrated exceptional leadership and 
-                strategic thinking in building and scaling these businesses.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <BuildingOfficeIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Business Portfolio</h2>
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Mountain Driftz</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Fashion & Retail</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    A premium clothing brand that has successfully established its presence in the Nepali market, 
-                    combining traditional aesthetics with modern fashion trends.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Abhaya Infoys</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Technology Solutions</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Leading provider of innovative technology solutions and digital transformation services.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Digital Yaklabs</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Digital Innovation</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Pioneering digital solutions and cutting-edge technology development.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Create Crafters Groups</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Creative Solutions</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    A conglomerate of creative businesses focused on innovative solutions.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Nepal Coding House</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Education & Training</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Premier coding education and professional training institution.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6">
+              About Abhaya
+            </h1>
+            <p className="text-xl text-black dark:text-white mb-8">
+              A modern programming language designed with simplicity and efficiency in mind
+            </p>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Right Column - Business Achievements & Vision */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-8"
-          >
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+      {/* Main Content */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Creator Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <RocketLaunchIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Business Achievements</h2>
+                <UserIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                <h2 className="text-2xl font-bold text-black dark:text-white">The Creator</h2>
               </div>
-              <div className="space-y-4">
-                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>Successfully established and scaled 6 diverse companies</li>
-                  <li>Created numerous employment opportunities in the local market</li>
-                  <li>Implemented innovative business strategies across multiple industries</li>
-                  <li>Built strong brand presence in the Nepali market</li>
-                  <li>Demonstrated exceptional leadership in managing multiple ventures</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <HeartIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Vision & Mission</h2>
-              </div>
-              <div className="space-y-4">
-                <p className="text-gray-600 dark:text-gray-300">
-                  My vision is to transform Nepal's business landscape through innovation and entrepreneurship. 
-                  I am committed to:
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
+                <p className="text-black dark:text-white mb-4">
+                  Abhaya was created with a vision to make programming more accessible and enjoyable. 
+                  The language combines modern programming concepts with a simple, intuitive syntax.
                 </p>
-                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>Expanding business operations across South Asia</li>
-                  <li>Creating more employment opportunities</li>
-                  <li>Promoting innovation in traditional industries</li>
-                  <li>Mentoring young entrepreneurs</li>
-                  <li>Contributing to Nepal's economic growth</li>
+              </div>
+            </motion.div>
+
+            {/* Mission Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-16"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <HeartIcon className="w-8 h-8 text-red-600 dark:text-red-400" />
+                <h2 className="text-2xl font-bold text-black dark:text-white">Our Mission</h2>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
+                <p className="text-black dark:text-white mb-4">
+                  Our mission is to empower developers with a language that's both powerful and easy to learn. 
+                  We believe in creating tools that make programming more accessible to everyone.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Features Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-16"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <CodeBracketIcon className="w-8 h-8 text-green-600 dark:text-green-400" />
+                <h2 className="text-2xl font-bold text-black dark:text-white">Key Features</h2>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
+                <ul className="space-y-3 text-black dark:text-white">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Simple and intuitive syntax
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Modern programming features
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Excellent documentation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Active community support
+                  </li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            {/* Future Plans */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <BookOpenIcon className="w-6 h-6 text-black dark:text-white" />
-                </div>
-                <h2 className="text-2xl font-semibold text-black dark:text-white">Education & Growth</h2>
+                <AcademicCapIcon className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                <h2 className="text-2xl font-bold text-black dark:text-white">Future Plans</h2>
               </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Badimalika Secondary School</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Current - Class 10 (SEE)</p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Balancing academic excellence with entrepreneurial responsibilities
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-black dark:text-white">Continuous Learning</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Actively pursuing business education and staying updated with global market trends while 
-                    managing multiple companies
-                  </p>
-                </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
+                <p className="text-black dark:text-white mb-4">
+                  We're constantly working to improve Abhaya and add new features. 
+                  Our roadmap includes enhanced tooling, more libraries, and better IDE support.
+                </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </section>
     </>
   )
 }
