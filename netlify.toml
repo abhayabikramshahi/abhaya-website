@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci && npm install vite --no-save && npm run build"
+  command = "npm ci && npm install vite vite-plugin-compression rollup-plugin-visualizer @vitejs/plugin-react --no-save && npm run build"
   publish = "dist"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./"
 

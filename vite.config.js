@@ -31,6 +31,10 @@ export default defineConfig(({ mode }) => ({
       },
     },
     rollupOptions: {
+      external: [
+        // Add any problematic dependencies here that should be treated as external
+        // For example: 'some-problematic-package'
+      ],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
