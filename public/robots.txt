@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://abhayabikramshahi.netlify.app//sitemap.xml 
+Sitemap: https://www.abhayabikramshahi.xyz/sitemap.xml

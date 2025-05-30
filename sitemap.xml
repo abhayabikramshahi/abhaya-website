@@ -7,7 +7,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/</loc>
+    <loc>https://www.abhayabikramshahi.xyz/</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -15,7 +15,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/about</loc>
+    <loc>https://www.abhayabikramshahi.xyz/about</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -23,7 +23,7 @@
 
   <!-- Skill Page -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/skills</loc>
+    <loc>https://www.abhayabikramshahi.xyz/skills</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -31,7 +31,7 @@
 
   <!-- Projects Page -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/projects</loc>
+    <loc>https://www.abhayabikramshahi.xyz/projects</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -39,7 +39,7 @@
 
   <!-- Gallery Page -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/galleryt</loc>
+    <loc>https://www.abhayabikramshahi.xyz/galleryt</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -47,7 +47,7 @@
 
   <!-- Abhaya Lnaguage Post -->
   <url>
-    <loc>https://abhayabikramshahi.netlify.app/abhaya</loc>
+    <loc>https://www.abhayabikramshahi.xyz/abhaya</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>

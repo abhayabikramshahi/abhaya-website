@@ -12,7 +12,7 @@ export default function SEO({
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const defaultDescription = 'A modern programming language designed for simplicity and efficiency.';
   const defaultImage = '/logo.png'; // Make sure to add your logo to the public folder
-  const defaultUrl = 'https://abhaya-lang.org'; // Replace with your actual domain
+  const defaultUrl = 'https://www.abhayabikramshahi.xyz/'; // Updated domain URL
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -60,4 +60,4 @@ export default function SEO({
       </script>
     </Helmet>
   );
-} 
+}
