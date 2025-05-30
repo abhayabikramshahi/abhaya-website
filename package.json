@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyze": "vite build --mode analyze"
   },
   "dependencies": {
     "framer-motion": "11.0.8",
@@ -28,7 +29,10 @@
     "eslint-plugin-react-refresh": "0.4.5",
     "postcss": "8.5.4",
     "tailwindcss": "3.4.17",
-    "vite": "5.1.6"
+    "terser": "^5.29.2",
+    "vite": "5.1.6",
+    "vite-plugin-compression": "^0.5.1",
+    "rollup-plugin-visualizer": "^5.12.0"
   },
   "engines": {
     "node": ">=18.0.0"
