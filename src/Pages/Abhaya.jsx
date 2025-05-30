@@ -155,17 +155,19 @@ export default function Abhaya() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-black dark:text-white mb-8 text-center">
-              Try Abhaya Online
-            </h2>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-black dark:text-white">
-                  Code Playground
-                </h3>
+            <div className="relative mb-8">
+              <div className="absolute left-0 top-0 h-full w-2 bg-gradient-to-b from-blue-500 to-purple-500 rounded-l-xl" />
+              <div className="pl-6">
+                <h2 className="text-3xl font-heading font-bold text-black dark:text-white mb-2">Try Abhaya Online</h2>
+                <p className="text-lg font-sans text-gray-600 dark:text-gray-300 mb-4">Experiment with the Abhaya language in your browser.</p>
+              </div>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-0 overflow-hidden">
+              <div className="flex items-center justify-between px-8 py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50/80 dark:from-blue-900/40 to-purple-50/80 dark:to-purple-900/40">
+                <h3 className="text-lg font-heading font-semibold text-black dark:text-white">Code Playground</h3>
                 <div className="flex gap-2">
                   <button 
-                    className="text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 flex items-center gap-2"
+                    className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 px-3 py-1.5 rounded transition-colors duration-200 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
                     onClick={handleCopy}
                   >
                     {copied ? (
@@ -181,65 +183,71 @@ export default function Abhaya() {
                     )}
                   </button>
                   <button 
-                    className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 flex items-center gap-2"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-700 flex items-center gap-2 font-heading font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     onClick={runCode}
                   >
-                    <PlayIcon className="w-4 h-4" />
+                    <PlayIcon className="w-5 h-5" />
                     Run
                   </button>
                 </div>
               </div>
-              <textarea
-                value={code}
-                onChange={(e) => {
-                  setCode(e.target.value)
-                  setHasRun(false)
-                  setOutput('')
-                }}
-                className="w-full h-48 bg-gray-900 text-white p-4 rounded-lg font-mono resize-none focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
-              />
-              {/* Output Section */}
-              <div className="mt-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-sm font-semibold text-black dark:text-white">Output:</h4>
-                  {hasRun && (
-                    <button 
-                      onClick={() => {
-                        setHasRun(false)
-                        setOutput('')
-                      }}
-                      className="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                    >
-                      Clear
-                    </button>
-                  )}
+              <div className="px-8 py-6">
+                <textarea
+                  value={code}
+                  onChange={(e) => {
+                    setCode(e.target.value)
+                    setHasRun(false)
+                    setOutput('')
+                  }}
+                  className="w-full h-48 bg-gray-900 text-white p-4 rounded-lg font-mono resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-purple-400 text-base mb-4 border border-gray-700"
+                  style={{ fontFamily: 'var(--font-mono, monospace)' }}
+                />
+                {/* Output Section */}
+                <div className="mt-2">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-sm font-heading font-semibold text-black dark:text-white">Output:</h4>
+                    {hasRun && (
+                      <button 
+                        onClick={() => {
+                          setHasRun(false)
+                          setOutput('')
+                        }}
+                        className="text-xs text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 font-sans"
+                      >
+                        Clear
+                      </button>
+                    )}
+                  </div>
+                  <div className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg min-h-[60px] border border-gray-200 dark:border-gray-600">
+                    {hasRun ? (
+                      <div className="text-black dark:text-white font-mono">
+                        {output}
+                      </div>
+                    ) : (
+                      <div className="text-gray-400 dark:text-gray-500 font-mono italic">
+                        Click "Run" to see the output
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-lg min-h-[60px]">
-                  {hasRun ? (
-                    <div className="text-black dark:text-white font-mono">
-                      {output}
-                    </div>
-                  ) : (
-                    <div className="text-gray-400 dark:text-gray-500 font-mono italic">
-                      Click "Run" to see the output
-                    </div>
-                  )}
+                <div className="mt-6 space-y-2">
+                  <p className="text-sm font-heading text-black dark:text-white mb-1">Examples:</p>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1 font-mono">
+                    <p>• Basic output: <span className="text-blue-600 dark:text-blue-400">chapde("Hello, World!")</span></p>
+                    <p>• Variables: <span className="text-blue-600 dark:text-blue-400">karya name = "John"</span></p>
+                    <p>• Using variables: <span className="text-blue-600 dark:text-blue-400">chapde("Hello, " + name)</span></p>
+                    <p>• Comments: <span className="text-blue-600 dark:text-blue-400">// This is a comment</span></p>
+                    <p>• Functions: <span className="text-blue-600 dark:text-blue-400">karan-gar greet(name) {'{'} chapde("Hello, " + name) {'}'}</span></p>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-4">
+                    <MagnifyingGlassIcon className="w-4 h-4" />
+                    <p>Search online for more examples and documentation</p>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-black dark:text-white">
-                  Examples:
-                </p>
-                <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                  <p>• Basic output: chapde("Hello, World!")</p>
-                  <p>• Variables: karya name = "John"</p>
-                  <p>• Using variables: chapde("Hello, " + name)</p>
-                  <p>• Comments: // This is a comment</p>
-                  <p>• Functions: karan-gar greet(name) {`{`} chapde("Hello, " + name) {`}`}</p>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-4">
-                  <MagnifyingGlassIcon className="w-4 h-4" />
-                  <p>Search online for more examples and documentation</p>
+                <div className="mt-8 text-right">
+                  <Link to="/documentation" className="inline-block text-black dark:text-black font-heading font-semibold hover:underline transition-colors duration-200">
+                    Read Documentation →
+                  </Link>
                 </div>
               </div>
             </div>

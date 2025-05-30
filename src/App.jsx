@@ -22,7 +22,6 @@ import Educational from "./Pages/Educational";
 import PageNotFound from "./Pages/PageNotFound";
 
 import { motion, AnimatePresence } from "framer-motion";
-import "./App.css";
 
 // Page transition wrapper component
 const PageTransition = ({ children }) => {
