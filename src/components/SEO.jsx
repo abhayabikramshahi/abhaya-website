@@ -8,27 +8,35 @@ export default function SEO({
   url,
   type = 'website'
 }) {
-  const siteTitle = 'Abhaya Language';
-  const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const defaultDescription = 'A modern programming language designed for simplicity and efficiency.';
-  const defaultImage = '/logo.png'; // Make sure to add your logo to the public folder
-  const defaultUrl = 'https://www.abhayabikramshahi.xyz/'; // Updated domain URL
+  const siteTitle = 'Abhaya Bikram Shahi';
+  const fullTitle = title ? `${title} | ${siteTitle}` : `${siteTitle} | Full Stack Developer & Tech Entrepreneur`;
+  const defaultDescription = 'Full Stack Developer specializing in React, Node.js, Python, and modern web technologies. Building innovative solutions with expertise in AI, automation, and data science.';
+  const defaultImage = '/images/abhaya1.jpg';
+  const defaultUrl = 'https://www.abhayabikramshahi.xyz/';
+  const defaultKeywords = 'Full Stack Developer, React Developer, Node.js, Python, AI Development, Web Development, Tech Entrepreneur, Software Engineer, Frontend Developer, Backend Developer';
 
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': type,
-    name: fullTitle,
+    '@type': 'Person',
+    name: siteTitle,
+    jobTitle: 'Full Stack Developer & Tech Entrepreneur',
     description: description || defaultDescription,
     url: url || defaultUrl,
     image: image || defaultImage,
-    publisher: {
-      '@type': 'Organization',
-      name: siteTitle,
-      logo: {
-        '@type': 'ImageObject',
-        url: defaultImage
-      }
-    }
+    sameAs: [
+      'https://github.com/abhayabikramshahi',
+      'https://linkedin.com/in/abhayabikramshahi',
+      'https://twitter.com/abhayabikramshahi'
+    ],
+    knowsAbout: [
+      'Web Development',
+      'React.js',
+      'Node.js',
+      'Python',
+      'AI Development',
+      'Data Science',
+      'Software Engineering'
+    ]
   };
 
   return (
@@ -36,7 +44,7 @@ export default function SEO({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description || defaultDescription} />
-      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="keywords" content={keywords || defaultKeywords} />
       
       {/* Open Graph Meta Tags */}
       <meta property="og:title" content={fullTitle} />
