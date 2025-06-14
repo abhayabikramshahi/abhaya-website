@@ -53,6 +53,9 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  optimizeDeps: {
+    include: ['@emotion/styled'],
+  },
   server: {
     port: 3000,
     strictPort: true,

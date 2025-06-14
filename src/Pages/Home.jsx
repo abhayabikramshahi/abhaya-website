@@ -1,91 +1,108 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { 
-  ArrowDownIcon, 
-  CodeBracketIcon, 
-  LanguageIcon,
-  DevicePhoneMobileIcon,
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import Educational from './Educational';
+import {
   RocketLaunchIcon,
   SparklesIcon,
-  CommandLineIcon,
-  BookOpenIcon
-} from '@heroicons/react/24/outline'
-import SEO from '../components/SEO'
-import abhaya1 from '../images/abhaya1.jpg'
+} from '@heroicons/react/24/outline';
+import SEO from '../components/SEO';
+import abhaya1 from '../images/abhaya1.jpg';
+
+// Only one logo for now
+import logo1 from '../assets/techawarenepal.png';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  show: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 export default function Home() {
   return (
     <>
-      <SEO 
+      <SEO
         title="Home | Abhaya's Personal Website"
-        description="Welcome to my personal website where I share my journey, projects, and experiences. Explore my work, skills, and connect with me."
-        keywords="personal website, portfolio, projects, skills, experience, professional journey, personal blog"
+        description="Welcome to my personal website where I share my journey, projects, and experiences."
+        keywords="portfolio, projects, skills, full-stack developer"
         type="website"
-        ogTitle="Abhaya's Personal Website - Portfolio & Projects"
-        ogDescription="Welcome to my personal website where I share my journey, projects, and experiences. Explore my work, skills, and connect with me."
+        ogTitle="Abhaya's Personal Website"
+        ogDescription="Explore my journey, work, and thoughts."
         ogImage={abhaya1}
         twitterCard="summary_large_image"
-        twitterTitle="Abhaya's Personal Website - Portfolio & Projects"
-        twitterDescription="Welcome to my personal website where I share my journey, projects, and experiences. Explore my work, skills, and connect with me."
+        twitterTitle="Abhaya's Personal Website"
+        twitterDescription="Explore my journey, work, and thoughts."
         twitterImage={abhaya1}
       />
-      
+
       <main>
         {/* Hero Section */}
-        <section className="relative py-20" aria-labelledby="hero-heading">
+        <section className="relative py-24 bg-gradient-to-br from-white via-gray-50 to-gray-100" aria-labelledby="hero-heading">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+                variants={fadeIn}
+                initial="hidden"
+                animate="show"
                 className="text-left"
               >
-                <h1 id="hero-heading" className="text-4xl md:text-5xl font-bold text-black mb-6">
-                  Hi, I'm Abhaya
+                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                  Hey, I’m <span className="text-red-600">Abhaya</span>
                 </h1>
-                <h2 className="text-2xl md:text-3xl text-gray-700 mb-8">
-                  Welcome to My Digital Space
+                <h2 className="text-2xl md:text-3xl text-gray-700 mb-6 font-medium">
+                  Turning Ideas into Reality through Code & Design
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  I'm passionate about creating meaningful experiences through technology and design. 
-                  Here you'll find my journey, projects, and the stories behind them.
+                <p className="text-lg text-gray-600 mb-8 max-w-xl">
+                  I’m a full-stack developer and creative thinker, passionate about building digital experiences that are not just functional but unforgettable.
                 </p>
-                <nav aria-label="Primary navigation" className="flex flex-wrap gap-4">
-                  <Link
-                    to="/projects"
-                    className="inline-flex items-center px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300"
-                    aria-label="View my projects"
-                  >
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-all duration-300 shadow-lg">
+                    <RocketLaunchIcon className="h-5 w-5" />
                     View Projects
                   </Link>
-                  <Link
-                    to="/about"
-                    className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-black text-black hover:bg-gray-100 transition-colors duration-300"
-                    aria-label="Learn more about me"
-                  >
+                  <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-black text-black hover:bg-gray-100 transition-all duration-300">
+                    <SparklesIcon className="h-5 w-5" />
                     About Me
                   </Link>
-                </nav>
+                </div>
               </motion.div>
 
               {/* Image */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative h-[500px]"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
               >
-                <img
-                  src={abhaya1}
-                  alt="Abhaya - Professional portrait showcasing personality and style"
-                  className="w-full h-full object-cover rounded-2xl shadow-xl"
-                  loading="eager"
-                />
+                <img loading="lazy" src={abhaya1} alt="Abhaya - Developer Portrait" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-sm font-medium text-gray-800">
+                  Let’s build something amazing.
+                </div>
               </motion.div>
             </div>
           </div>
+        </section>
+
+        {/* Trusted Companies */}
+        <section className="py-12 bg-white">
+          <div className="text-center mb-6">
+            <h3 className="text-3xl font-semibold text-gray-600">Trusted by developers & brands</h3>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="flex justify-center items-center"
+          >
+            <img src={logo1} alt="TechAware Nepal Logo" className="h-[140px]" />
+          </motion.div>
         </section>
 
         {/* Features Section */}
@@ -93,76 +110,58 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <h2 id="features-heading" className="text-3xl font-bold text-center mb-12">What I Do</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <article className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold mb-4">Creative Projects</h3>
-                <p className="text-gray-600">
-                  Exploring innovative ideas and bringing them to life through various creative endeavors.
-                </p>
-                <Link 
-                  to="/skills" 
-                  className="text-black font-medium hover:underline mt-4 inline-block"
-                  aria-label="Learn more about my skills and expertise"
+              {["Creative Projects", "Professional Work"].map((title, i) => (
+                <motion.article
+                  key={title}
+                  variants={fadeIn}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  custom={i}
+                  className="bg-white p-6 rounded-xl shadow-md"
                 >
-                  Explore my skills →
-                </Link>
-              </article>
-              <article className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold mb-4">Professional Work</h3>
-                <p className="text-gray-600">
-                  Delivering high-quality solutions and contributing to meaningful projects.
-                </p>
-                <Link 
-                  to="/projects" 
-                  className="text-black font-medium hover:underline mt-4 inline-block"
-                  aria-label="View my professional projects"
-                >
-                  See my work →
-                </Link>
-              </article>
-              <article className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold mb-4">Personal Journey</h3>
-                <p className="text-gray-600">
-                  Sharing experiences, insights, and stories from my professional and personal growth.
-                </p>
-                <Link 
-                  to="/gallery" 
-                  className="text-black font-medium hover:underline mt-4 inline-block"
-                  aria-label="View my personal gallery and experiences"
-                >
-                  View gallery →
-                </Link>
-              </article>
+                  <h3 className="text-xl font-semibold mb-4">{title}</h3>
+                  <p className="text-gray-600">
+                    {i === 0
+                      ? 'Exploring innovative ideas and bringing them to life through various creative endeavors.'
+                      : 'Delivering high-quality solutions and contributing to meaningful projects.'}
+                  </p>
+                  <Link
+                    to={i === 0 ? '/skills' : '/projects'}
+                    className="text-black font-medium hover:underline mt-4 inline-block"
+                  >
+                    {i === 0 ? 'Explore my skills →' : 'See my work →'}
+                  </Link>
+                </motion.article>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="py-20" aria-labelledby="cta-heading">
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="py-20"
+        >
           <div className="container mx-auto px-6 text-center">
-            <h2 id="cta-heading" className="text-3xl font-bold mb-8">Let's Connect</h2>
+            <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Interested in working together or just want to say hello? 
-              Feel free to reach out and let's start a conversation.
+              Interested in working together or just want to say hello? I’m open to collaborations, freelance work, or just tech talk.
             </p>
-            <nav aria-label="Call to action navigation" className="flex flex-wrap justify-center gap-4">
-              <Link
-                to="/skills"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300"
-                aria-label="View my skills and expertise"
-              >
-                View Skills
-              </Link>
-              <Link
-                to="/gallery"
-                className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-black text-black hover:bg-gray-100 transition-colors duration-300"
-                aria-label="Explore my gallery and experiences"
-              >
-                Explore Gallery
-              </Link>
-            </nav>
+            <Link
+              to="/skills"
+              className="inline-flex items-center px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300"
+            >
+              View Skills
+            </Link>
           </div>
-        </section>
+        </motion.section>
       </main>
+
+      <Educational />
     </>
-  )
+  );
 }

@@ -29,7 +29,7 @@ const Preloader = () => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[99] flex items-center justify-center bg-black"
+      className="fixed inset-0 z-[99] flex items-center justify-center bg-white"
     >
       <div className="text-center">
         <motion.div
@@ -40,7 +40,7 @@ const Preloader = () => {
         >
           {/* Animated border */}
           <motion.div
-            className="absolute inset-0 border-4 border-white rounded-full"
+            className="absolute inset-0 border-4 border-black rounded-full"
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 360],
@@ -54,7 +54,7 @@ const Preloader = () => {
           
           {/* Inner circle */}
           <motion.div
-            className="absolute inset-4 border-4 border-white rounded-full"
+            className="absolute inset-4 border-4 border-black rounded-full"
             animate={{
               scale: [1, 0.9, 1],
               rotate: [0, -360],
@@ -78,7 +78,7 @@ const Preloader = () => {
               ease: "easeInOut"
             }}
           >
-            <div className="w-4 h-4 bg-white rounded-full" />
+            <div className="w-4 h-4 bg-black rounded-full" />
           </motion.div>
         </motion.div>
         
@@ -89,7 +89,7 @@ const Preloader = () => {
           className="space-y-2"
         >
           <motion.h2
-            className="text-2xl font-bold text-white"
+            className="text-2xl font-bold text-black"
             animate={{
               opacity: [0.5, 1, 0.5],
             }}
@@ -115,7 +115,7 @@ const Preloader = () => {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-2 h-2 bg-white rounded-full"
+                className="w-2 h-2 bg-black rounded-full"
                 animate={{
                   y: [0, -10, 0],
                 }}

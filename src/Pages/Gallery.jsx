@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-// Import images
+// Keep original image imports to avoid 404 issues
 import abhaya1 from '../images/abhaya1.jpg';
 import abhaya2 from '../images/abhaya2.jpg';
 import abhaya3 from '../images/abhaya3.jpg';
@@ -15,32 +15,32 @@ const galleryImages = [
   {
     id: 1,
     src: abhaya1,
-    alt: 'Abhaya Project Showcase 1'
+    alt: 'Abhaya Bikram Shahi Full Stack Developer Project Showcase 1'
   },
   {
     id: 2,
     src: abhaya2,
-    alt: 'Abhaya Project Showcase 2'
+    alt: 'Abhaya Bikram Shahi Full Stack Developer Project Showcase 2'
   },
   {
     id: 3,
     src: abhaya3,
-    alt: 'Abhaya Project Showcase 3'
+    alt: 'Abhaya Bikram Shahi Full Stack Developer Project Showcase 3'
   },
   {
     id: 4,
     src: abhaya4,
-    alt: 'Abhaya Project Showcase 4'
+    alt: 'Abhaya Bikram Shahi Full Stack Developer Project Showcase 4'
   },
   {
     id: 5,
     src: abhayaLogo,
-    alt: 'Abhaya Logo'
+    alt: 'Abhaya Bikram Shahi Official Developer Logo'
   },
   {
     id: 6,
     src: working,
-    alt: 'Working Environment'
+    alt: 'Abhaya Bikram Shahi Working Environment Snapshot'
   }
 ];
 
@@ -60,16 +60,41 @@ function Gallery() {
   return (
     <>
       <Helmet>
-        <title>Gallery | Abhaya - Full Stack Developer</title>
-        <meta name="description" content="Explore our collection of stunning images showcasing our work and projects." />
-        <meta name="keywords" content="gallery, portfolio, images, projects, web development" />
-        <meta property="og:title" content="Gallery | Abhaya - Full Stack Developer" />
-        <meta property="og:description" content="Explore our collection of stunning images showcasing our work and projects." />
+        <title>Gallery | Abhaya Bikram Shahi - Full Stack Developer</title>
+        <meta
+          name="description"
+          content="Explore the portfolio and gallery of Abhaya Bikram Shahi showcasing web development projects and working environment."
+        />
+        <meta
+          name="keywords"
+          content="Abhaya Bikram Shahi, Web Developer Nepal, Portfolio, Full Stack Developer, Project Gallery, Developer Kalikot"
+        />
+        <meta property="og:title" content="Gallery | Abhaya Bikram Shahi - Full Stack Developer" />
+        <meta
+          property="og:description"
+          content="Explore stunning images from Abhaya Bikram Shahi's full stack development journey and professional work."
+        />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Abhaya Bikram Shahi",
+              "jobTitle": "Full Stack Developer",
+              "image": "https://yourdomain.com/images/abhaya1.jpg",
+              "url": "https://yourdomain.com/gallery",
+              "sameAs": [
+                "https://www.linkedin.com/in/abhaya",
+                "https://github.com/abhaya"
+              ]
+            }
+          `}
+        </script>
       </Helmet>
 
       <div className="container mx-auto px-4 py-8">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
@@ -82,7 +107,7 @@ function Gallery() {
             const isEven = index % 2 === 0;
             const row = Math.floor(index / 3);
             const isEvenRow = row % 2 === 0;
-            
+
             return (
               <motion.div
                 key={image.id}
@@ -90,18 +115,27 @@ function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className={`group relative overflow-hidden rounded-lg shadow-lg aspect-square cursor-pointer
-                  ${isEvenRow 
-                    ? (isEven ? 'md:translate-y-0' : 'md:translate-y-24') 
-                    : (isEven ? 'md:translate-y-24' : 'md:translate-y-0')}`}
+                  ${isEvenRow
+                    ? isEven
+                      ? 'md:translate-y-0'
+                      : 'md:translate-y-24'
+                    : isEven
+                    ? 'md:translate-y-24'
+                    : 'md:translate-y-0'
+                  }`}
                 onClick={() => handleImageClick(image)}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
+                  title={image.alt}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+                <p className="absolute bottom-2 left-2 text-xs bg-white bg-opacity-80 text-black px-2 py-1 rounded">
+                  {image.alt}
+                </p>
               </motion.div>
             );
           })}
@@ -115,7 +149,6 @@ function Gallery() {
           </div>
         )}
 
-        {/* Fullscreen View */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div
@@ -147,9 +180,17 @@ function Gallery() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Fallback for bots */}
+        <noscript>
+          <img
+            src="/images/abhaya1.jpg"
+            alt="Abhaya Bikram Shahi Full Stack Developer Project"
+          />
+        </noscript>
       </div>
     </>
   );
 }
 
-export default Gallery; 
+export default Gallery;

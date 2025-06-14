@@ -48,74 +48,85 @@ export default function Abhaya() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const runCode = () => {
+const runCode = () => {
+  try {
+    setHasRun(true)
+    let result = ''
+    let currentVariables = { ...variables }
+
+    // 1️⃣ Check for JavaScript syntax errors
     try {
-      setHasRun(true)
-      let result = ''
-      let currentVariables = { ...variables }
+      new Function(code)()
+    } catch (err) {
+      throw new SyntaxError('Syntax Error: ' + err.message)
+    }
 
-      // Split code into lines and process each line
-      const lines = code.split('\n')
-      
-      for (let line of lines) {
-        // Skip comments
-        if (line.trim().startsWith('//')) continue
+    // 2️⃣ Run the Abhaya language code
+    const lines = code.split('\n')
+    for (let line of lines) {
+      line = line.trim()
+      if (line.startsWith('//') || line === '') continue
 
-        // Handle variable declaration
-        if (line.includes('karya')) {
-          const [_, varName, value] = line.match(/karya\s+(\w+)\s*=\s*(.+)/) || []
-          if (varName && value) {
-            // Remove quotes from the value
-            const cleanValue = value.trim().replace(/^["']|["']$/g, '')
-            currentVariables[varName] = cleanValue
-            // Add variable declaration to output in the format "Name: value"
-            result += `${varName}: ${cleanValue}\n`
-          }
-          continue
+      // Handle variable declarations like: karya x = "Hello"
+      if (line.includes('karya')) {
+        const match = line.match(/karya\s+(\w+)\s*=\s*(.+)/)
+        if (match) {
+          const [, varName, value] = match
+          const cleanValue = value.trim().replace(/^["']|["']$/g, '')
+          currentVariables[varName] = cleanValue
+          result += `${varName}: ${cleanValue}\n`
+        } else {
+          throw new Error(`Invalid karya syntax on line: "${line}"`)
         }
-
-        // Handle function declaration
-        if (line.includes('karan-gar')) {
-          // Store function definition for later use
-          continue
-        }
-
-        // Handle chapde command
-        if (line.includes('chapde(')) {
-          const match = line.match(/chapde\((.*)\)/)
-          if (match) {
-            let content = match[1]
-            
-            // Replace variables in the content
-            Object.keys(currentVariables).forEach(varName => {
-              const regex = new RegExp(varName, 'g')
-              content = content.replace(regex, currentVariables[varName])
-            })
-
-            // Remove quotes and add to result
-            content = content.replace(/^["']|["']$/g, '')
-            result += content + '\n'
-          }
-        }
+        continue
       }
 
-      // Update variables state
-      setVariables(currentVariables)
+      // Handle output command like: chapde("Hi " + name)
+      if (line.includes('chapde(')) {
+        const match = line.match(/chapde\((.*)\)/)
+        if (match) {
+          let content = match[1]
 
-      // Display the result
-      setOutput(
-        <div className="chapde-output p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          {result.trim()}
-        </div>
-      )
-    } catch (error) {
-      setOutput(
-        <div className="text-red-500 dark:text-red-400 font-mono">
-          Error: {error.message}
-        </div>
-      )
+          // Replace variables in the expression
+          Object.keys(currentVariables).forEach(varName => {
+            const regex = new RegExp(`\\b${varName}\\b`, 'g')
+            content = content.replace(regex, JSON.stringify(currentVariables[varName]))
+          })
+
+          // Try to evaluate the resulting expression safely
+          try {
+            const output = eval(content)
+            result += output + '\n'
+          } catch {
+            throw new Error(`Runtime error while evaluating: ${content}`)
+          }
+        } else {
+          throw new Error(`Invalid chapde syntax on line: "${line}"`)
+        }
+      }
     }
+
+    // Display output
+    setVariables(currentVariables)
+    setOutput(
+      <div className="chapde-output p-4 bg-white dark:bg-gray-800 rounded-lg border whitespace-pre-wrap font-mono">
+        {result.trim()}
+      </div>
+    )
+
+  } catch (error) {
+    const message = error instanceof SyntaxError
+      ? '❌ Syntax Error: ' + error.message
+      : '❌ ' + error.message
+
+    setOutput(
+      <div className="text-red-500 dark:text-red-400 font-mono p-4 bg-red-100 dark:bg-red-900 rounded-lg">
+        {message}
+      </div>
+    )
   }
+}
+
 
   return (
     <>

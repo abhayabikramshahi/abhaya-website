@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
+import {
   Bars3Icon,
   XMarkIcon
 } from '@heroicons/react/24/outline'
@@ -8,48 +8,13 @@ import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
 
 const sections = [
-  { 
-    id: 'home', 
-    label: 'Home', 
-    path: '/',
-    description: 'Go to homepage'
-  },
-  { 
-    id: 'about', 
-    label: 'About Me', 
-    path: '/about',
-    description: 'Learn more about me and my background'
-  },
-  { 
-    id: 'skills', 
-    label: 'Technical Skills', 
-    path: '/skills',
-    description: 'View my technical expertise and capabilities'
-  },
-  { 
-    id: 'projects', 
-    label: 'My Projects', 
-    path: '/projects',
-    description: 'Explore my portfolio of projects'
-  },
-  { 
-    id: 'gallery', 
-    label: 'Photo Gallery', 
-    path: '/gallery',
-    description: 'Browse through my work gallery'
-  },
-  { 
-    id: 'abhaya', 
-    label: 'Abhaya Language', 
-    path: '/abhaya',
-    description: 'Learn about the Abhaya programming language'
-  },
-  {
-    id: 'educational-videos',
-    label: 'Educational Videos',
-    path: '/educational-videos',
-    description: 'Watch educational videos'
-  }
+  { id: 'home', label: 'Home', path: '/', description: 'Go to homepage' },
+  { id: 'about', label: 'About Me', path: '/about', description: 'Learn more about me and my background' },
+    { id: 'tool', label: 'Tool', path: '/abhaya-ai', description: 'Access Abhaya AI tools' },
+  { id: 'skills', label: 'Technical Skills', path: '/skills', description: 'View my technical expertise and capabilities' },
+  { id: 'projects', label: 'My Projects', path: '/projects', description: 'Explore my portfolio of projects' },
+  { id: 'abhaya', label: 'Abhaya Language', path: '/abhaya', description: 'Learn about the Abhaya programming language' },
+  { id: 'blogs', label: 'Blogs', path: '/blogs', description: 'Read my blog posts' }
 ]
 
 export default function Navbar() {
@@ -63,9 +28,7 @@ export default function Navbar() {
   }
 
   const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === path
-    }
+    if (path === '/') return location.pathname === path
     return location.pathname.startsWith(path)
   }
 
@@ -76,19 +39,19 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 ${themeColors.background} shadow-md z-50`}
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-white/30 dark:bg-black/30 border-b border-white/20 shadow-md`}
         role="navigation"
         aria-label="Main navigation"
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className={`text-2xl font-bold ${themeColors.text} hover:opacity-80 transition-opacity duration-300`}
               aria-label="Abhaya - Home"
             >
-              Abhaya (OS)
+              Abhaya <span className='text-[#087EA4]'>(OS)</span>
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -115,7 +78,6 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    
                     <span className="relative z-10 whitespace-nowrap">{section.label}</span>
                   </Link>
                 ))}
@@ -150,7 +112,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-20 left-0 right-0 ${themeColors.background} shadow-lg z-40 md:hidden`}
+            className={`fixed top-20 left-0 right-0 z-40 md:hidden backdrop-blur-lg bg-white/30 dark:bg-black/30 border-b border-white/20 shadow-lg`}
             id="mobile-menu"
             role="navigation"
             aria-label="Mobile navigation"
@@ -179,7 +141,6 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    
                     <span className="relative z-10">{section.label}</span>
                   </Link>
                 ))}

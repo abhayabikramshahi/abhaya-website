@@ -20,6 +20,13 @@ import Documentation from "./Pages/Documentation";
 import Gallery from "./Pages/Gallery";
 import Educational from "./Pages/Educational";
 import PageNotFound from "./Pages/PageNotFound";
+import Blogs from "./Pages/Blogs";
+import Abhaya1Release from "./blogs/Abhaya Language/Abhaya1Realsease";
+import AbhayaAi from './Pages/Abhaya-ai'
+import CssCodeGenerator from './Pages/CssCodeGenerator'
+import PasswordStrengthChecker from './Pages/PasswordStrengthChecker'
+import FlirtingLine from './Pages/FlirtingLine'
+
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -52,6 +59,23 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+              <Route
+          path="/flirting-line-generator"
+          element={
+            <PageTransition>
+              <FlirtingLine />
+            </PageTransition>
+          }
+        />
+<Route
+  path="/abhaya-1-release"
+  element={
+    <PageTransition>
+      <Abhaya1Release />
+    </PageTransition>
+  }
+/>
+
         <Route
           path="/home"
           element={
@@ -60,6 +84,15 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+          path="/blogs"
+          element={
+            <PageTransition>
+              <Blogs />
+            </PageTransition>
+          }
+        />
+
         <Route
           path="/about"
           element={
@@ -117,10 +150,35 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/css-code-generator"
+          element={
+            <PageTransition>
+              <CssCodeGenerator />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/password-strength-checker"
+          element={
+            <PageTransition>
+              <PasswordStrengthChecker />
+            </PageTransition>
+          }
+        />
+
+        <Route
           path="*"
           element={
             <PageTransition>
               <PageNotFound />
+            </PageTransition>
+          }
+        />
+              <Route
+          path="/abhaya-ai"
+          element={
+            <PageTransition>
+           <AbhayaAi />
             </PageTransition>
           }
         />

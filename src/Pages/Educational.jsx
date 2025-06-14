@@ -11,24 +11,21 @@ export default function EducationalVideos() {
       title: 'Computer Science Class 10 Solution for 8 Marks 16 Number - Karnali Province | Code with Abhaya',
       description: 'Computer Science Class 10 Solution for 8 Marks 16 Number - Karnali Province | Code with Abhaya',
       thumbnail: `https://img.youtube.com/vi/l30_W14nE3Q/maxresdefault.jpg`,
-      duration: '15:30',
-      views: '1.2K'
+      duration: '15:30'
     },
     {
       id: 'oFDL1DIRfak',
       title: 'This is how you can create Jokes generator using Python',
       description: 'This is how you can create Jokes generator using Python "Random". | Code with Abhaya.',
       thumbnail: `https://img.youtube.com/vi/oFDL1DIRfak/maxresdefault.jpg`,
-      duration: '10:45',
-      views: '2.5K'
+      duration: '10:45'
     },
     {
       id: 'aJkXSdNrSKI',
       title: 'How to make Navbar',
       description: 'How to make Navbar in "HTML CSS and JS" | Code with Abhaya',
       thumbnail: `https://img.youtube.com/vi/aJkXSdNrSKI/maxresdefault.jpg`,
-      duration: '12:15',
-      views: '3.1K'
+      duration: '12:15'
     }
   ]
 
@@ -82,9 +79,7 @@ export default function EducationalVideos() {
                   {item.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {item.views} views
-                  </span>
+                  
                   <a
                     href={`https://www.youtube.com/watch?v=${item.id}`}
                     target="_blank"
