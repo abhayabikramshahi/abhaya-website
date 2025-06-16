@@ -26,6 +26,8 @@ import AbhayaAi from './Pages/Abhaya-ai'
 import CssCodeGenerator from './Pages/CssCodeGenerator'
 import PasswordStrengthChecker from './Pages/PasswordStrengthChecker'
 import FlirtingLine from './Pages/FlirtingLine'
+import AbhayaLanguageIntro from './blog/AbhayaLanguageIntro';
+import AbhayaCssFramework from './blog/AbhayaCssFramework';
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -179,6 +181,30 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
            <AbhayaAi />
+            </PageTransition>
+          }
+        />
+              <Route
+          path="/abhaya-language-intro"
+          element={
+            <PageTransition>
+              <AbhayaLanguageIntro />
+            </PageTransition>
+          }
+        />
+              <Route
+          path="/abhaya-css-framework"
+          element={
+            <PageTransition>
+              <AbhayaCssFramework />
+            </PageTransition>
+          }
+        />
+              <Route
+          path="/abhaya-1-release"
+          element={
+            <PageTransition>
+              <Abhaya1Release />
             </PageTransition>
           }
         />
