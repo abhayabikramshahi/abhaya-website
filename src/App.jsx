@@ -21,13 +21,13 @@ import Gallery from "./Pages/Gallery";
 import Educational from "./Pages/Educational";
 import PageNotFound from "./Pages/PageNotFound";
 import Blogs from "./Pages/Blogs";
-import Abhaya1Release from "./blogs/Abhaya Language/Abhaya1Realsease";
 import AbhayaAi from './Pages/Abhaya-ai'
 import CssCodeGenerator from './Pages/CssCodeGenerator'
 import PasswordStrengthChecker from './Pages/PasswordStrengthChecker'
 import FlirtingLine from './Pages/FlirtingLine'
 import AbhayaLanguageIntro from './blog/AbhayaLanguageIntro';
 import AbhayaCssFramework from './blog/AbhayaCssFramework';
+import Abhaya1Release from './blog/Abhaya1Release';
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -69,14 +69,6 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-<Route
-  path="/abhaya-1-release"
-  element={
-    <PageTransition>
-      <Abhaya1Release />
-    </PageTransition>
-  }
-/>
 
         <Route
           path="/home"

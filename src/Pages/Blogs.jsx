@@ -4,9 +4,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { formatDistanceToNow } from 'date-fns';
 import AbhayaLanguageIntro from '../blog/AbhayaLanguageIntro';
 import AbhayaCssFramework from '../blog/AbhayaCssFramework';
-import Abhaya1Release from '../blog/Abhaya1Release';
 
-// Dummy blog data
+
 const blogData = [
   {
     id: 1,
@@ -23,14 +22,6 @@ const blogData = [
     date: new Date("2025-06-09T12:00:00"),
     author: "Abhaya Shahi",
     slug: "abhaya-css-framework"
-  },
-  {
-    id: 3,
-    title: "Digital Marketing Strategies and SEO Tips",
-    description: "Discover comprehensive digital marketing strategies and SEO tips for 2025, featuring in-depth case studies, expert interviews, and original research.",
-    date: new Date("2025-06-08T10:00:00"),
-    author: "Abhaya Shahi",
-    slug: "abhaya-1-release"
   },
 ];
 
