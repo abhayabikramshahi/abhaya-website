@@ -39,7 +39,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-white/30 dark:bg-black/30 border-b border-white/20 shadow-md`}
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-white/30 border-b border-white/20 shadow-md`}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -112,7 +112,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-20 left-0 right-0 z-40 md:hidden backdrop-blur-lg bg-white/30 dark:bg-black/30 border-b border-white/20 shadow-lg`}
+            className={`fixed top-20 left-0 right-0 z-40 md:hidden backdrop-blur-lg bg-white/30 border-b border-white/20 shadow-lg`}
             id="mobile-menu"
             role="navigation"
             aria-label="Mobile navigation"

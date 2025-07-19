@@ -97,7 +97,7 @@ function Gallery() {
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+          className="text-4xl font-bold text-center mb-8 text-gray-900"
         >
           Gallery
         </motion.h1>
@@ -143,7 +143,7 @@ function Gallery() {
 
         {galleryImages.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600">
               No images available in the gallery yet.
             </p>
           </div>

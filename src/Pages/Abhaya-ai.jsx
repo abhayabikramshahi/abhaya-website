@@ -3,83 +3,88 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const tools = [
-	{
-		name: 'CSS Code Generator',
-		description: 'Instantly generate beautiful CSS styles',
-		to: '/css-code-generator',
-		bgColor: 'bg-blue-600 hover:bg-blue-700',
-		tags: ['Tailwind', 'Design', 'Custom CSS'],
-	},
-	{
-		name: 'Password Strength Checker',
-		description: 'Check how strong your password is',
-		to: '/password-strength-checker',
-		bgColor: 'bg-green-600 hover:bg-green-700',
-		tags: ['Security', 'Auth', 'Live Feedback'],
-	},
-	{
-		name: 'Flirting Line Generator',
-		description: 'You can generate flirting lines with this tool',
-		to: '/flirting-line-generator',
-		bgColor: 'bg-red-600 hover:bg-red-700',
-		tags: ['couples', 'fun', 'romance'],
-	},
+  {
+    name: 'CSS Code Generator',
+    description: 'Instantly generate beautiful CSS styles.',
+    to: '/css-code-generator',
+    bgColor: 'bg-blue-600 hover:bg-blue-700',
+    tags: ['Tailwind', 'Design', 'Custom CSS'],
+    icon: '🎨',
+  },
+  {
+    name: 'Password Strength Checker',
+    description: 'Check how strong your password is.',
+    to: '/password-strength-checker',
+    bgColor: 'bg-green-600 hover:bg-green-700',
+    tags: ['Security', 'Auth', 'Live Feedback'],
+    icon: '🔒',
+  },
+  {
+    name: 'Flirting Line Generator',
+    description: 'Generate creative flirting lines instantly.',
+    to: '/flirting-line-generator',
+    bgColor: 'bg-red-600 hover:bg-red-700',
+    tags: ['Couples', 'Fun', 'Romance'],
+    icon: '💌',
+  },
 ];
 
 function TryAI() {
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.6 }}
-			className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
-		>
-			<h1 className="text-3xl font-extrabold text-center text-black mb-4 tracking-tight">
-				Abhaya AI Tools
-			</h1>
-			<p className="text-center text-base text-gray-700 max-w-2xl mx-auto mb-10">
-				Explore simple, innovative tools to enhance your workflow.
-			</p>
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+      className="max-w-6xl mx-auto px-6 py-20"
+    >
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+          🚀 Abhaya AI Tools
+        </h1>
+        <p className="text-gray-600 max-w-xl mx-auto text-lg">
+          Supercharge your workflow with smart, minimal, and powerful AI tools designed for speed and simplicity.
+        </p>
+      </div>
 
-			<div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
-				{tools.map((tool, idx) => (
-					<motion.div
-						key={idx}
-						whileHover={{ y: -4, scale: 1.02 }}
-						className="rounded-xl border border-gray-200 shadow-md p-6 bg-white flex flex-col items-start transition duration-200 hover:shadow-lg group relative"
-					>
-						<div className="mb-3 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-black text-2xl font-bold">
-							{idx === 0 && '🎨'}
-							{idx === 1 && '🔒'}
-							{idx === 2 && '💌'}
-						</div>
-						<h2 className="text-lg font-bold mb-1 text-black group-hover:text-blue-600 transition">
-							{tool.name}
-						</h2>
-						<p className="text-gray-700 mb-3 min-h-[40px]">
-							{tool.description}
-						</p>
-						<div className="flex flex-wrap gap-2 mb-4">
-							{tool.tags.map((tag, tagIdx) => (
-								<span
-									key={tagIdx}
-									className="px-2 py-1 text-xs font-medium bg-gray-200 text-black rounded-full"
-								>
-									#{tag}
-								</span>
-							))}
-						</div>
-						<Link
-							to={tool.to}
-							className="bg-black text-white font-semibold px-5 py-2 rounded-lg inline-block text-sm mt-auto transition hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black"
-						>
-							Try Now
-						</Link>
-					</motion.div>
-				))}
-			</div>
-		</motion.div>
-	);
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tools.map((tool, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ y: -6, scale: 1.03 }}
+            className="transition-all duration-200"
+          >
+            <Link
+              to={tool.to}
+              className="group block bg-white border border-gray-200 shadow-sm rounded-2xl p-6 h-full transition hover:shadow-lg focus:outline-none"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 text-2xl mb-4">
+                {tool.icon}
+              </div>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition">
+                {tool.name}
+              </h3>
+
+              <p className="text-gray-600 mb-4 text-sm min-h-[48px]">
+                {tool.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {tool.tags.map((tag, tagIdx) => (
+                  <span
+                    key={tagIdx}
+                    className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
 }
 
 export default TryAI;

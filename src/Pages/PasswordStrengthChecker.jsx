@@ -21,10 +21,10 @@ export default function PasswordStrengthChecker() {
   const strength = getStrength(password);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-16 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-white text-gray-900 px-6 py-16 flex flex-col items-center justify-center">
       <h1 className="text-4xl font-extrabold mb-6 text-center">Password Strength Checker</h1>
 
-      <p className="max-w-3xl text-lg mb-10 text-center text-gray-600 dark:text-gray-300">
+              <p className="max-w-3xl text-lg mb-10 text-center text-gray-600">
         This tool helps you create strong, secure passwords by giving instant feedback based on complexity.
         Protect your accounts by using passwords that include letters, numbers, and special characters.
       </p>
@@ -35,7 +35,7 @@ export default function PasswordStrengthChecker() {
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="w-full p-4 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+          className="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition"
           placeholder="Type your password..."
         />
 
@@ -44,7 +44,7 @@ export default function PasswordStrengthChecker() {
           <span style={{ color: strength.color }}>{strength.label}</span>
         </div>
 
-        <div className="mt-6 text-md text-gray-500 dark:text-gray-400">
+        <div className="mt-6 text-md text-gray-500">
           <ul className="list-disc pl-6">
             <li>Minimum 8 characters</li>
             <li>Includes uppercase and lowercase letters</li>

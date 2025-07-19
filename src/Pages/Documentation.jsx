@@ -62,16 +62,16 @@ export default function Documentation() {
         type="website"
       />
 
-      <div className="min-h-screen bg-white dark:bg-gray-900">
+      <div className="min-h-screen bg-white">
         {/* Header */}
-        <header className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                  <header className="bg-gray-50 border-b border-gray-200">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <Link to="/" className="flex items-center gap-2 text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300">
+                              <Link to="/" className="flex items-center gap-2 text-black hover:text-gray-600">
                 <ArrowLeftIcon className="w-5 h-5" />
                 Back to Home
               </Link>
-              <h1 className="text-2xl font-bold text-black dark:text-white">Documentation</h1>
+                              <h1 className="text-2xl font-bold text-black">Documentation</h1>
             </div>
           </div>
         </header>
@@ -86,10 +86,10 @@ export default function Documentation() {
               transition={{ duration: 0.5 }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold text-black dark:text-white mb-4">
+              <h2 className="text-3xl font-bold text-black mb-4">
                 Welcome to Abhaya Documentation
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-gray-600">
                 Learn everything you need to know about the Abhaya programming language.
                 From basic syntax to advanced features, this documentation will guide you
                 through your journey with Abhaya.
@@ -105,7 +105,7 @@ export default function Documentation() {
                 transition={{ duration: 0.5, delay: sectionIndex * 0.1 }}
                 className="mb-12"
               >
-                <h3 className="text-2xl font-bold text-black dark:text-white mb-6 flex items-center gap-2">
+                <h3 className="text-2xl font-bold text-black mb-6 flex items-center gap-2">
                   <BookOpenIcon className="w-6 h-6" />
                   {section.title}
                 </h3>
@@ -113,12 +113,12 @@ export default function Documentation() {
                   {section.content.map((item, itemIndex) => (
                     <div
                       key={item.title}
-                      className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm"
+                      className="bg-gray-50 rounded-xl p-6 shadow-sm"
                     >
-                      <h4 className="text-xl font-semibold text-black dark:text-white mb-2">
+                                              <h4 className="text-xl font-semibold text-black mb-2">
                         {item.title}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                              <p className="text-gray-600 mb-4">
                         {item.description}
                       </p>
                       <div className="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm">

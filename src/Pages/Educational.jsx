@@ -41,7 +41,7 @@ export default function EducationalVideos() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Educational Videos</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-gray-600">
             Watch our curated collection of educational content
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function EducationalVideos() {
               {/* Video Info */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 line-clamp-2">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                   {item.description}
                 </p>
                 <div className="flex items-center justify-between">
@@ -101,7 +101,7 @@ export default function EducationalVideos() {
         {/* Additional Content Section */}
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold mb-4">More Learning Resources</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
+          <p className="text-gray-600 mb-8">
             Check back regularly for new educational content and tutorials.
           </p>
           <div className="flex justify-center space-x-4">

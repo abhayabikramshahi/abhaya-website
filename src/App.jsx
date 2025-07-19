@@ -210,7 +210,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
-          <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+          <div className="min-h-screen bg-white text-gray-900">
             <SEO
               title="Abhaya - Full Stack Developer"
               description="Meet Abhaya Bikram Shahi, a tech entrepreneur, web/app developer, and digital creator from Nepal. Explore his modern portfolio and startup journey."

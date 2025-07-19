@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const PageNotFound = () => {
   return (
-    <div className="min-h-screen dark:from-black dark:via-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="bg-white/60 dark:bg-white/10 backdrop-blur-xl  p-10 text-center max-w-md w-full"
+        className="bg-white/60 backdrop-blur-xl  p-10 text-center max-w-md w-full"
       >
-        <h1 className="text-[6rem] font-extrabold text-blue-600 dark:text-blue-400 ">
+                  <h1 className="text-[6rem] font-extrabold text-blue-600 ">
           404
         </h1>
 
@@ -19,12 +19,12 @@ const PageNotFound = () => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-800 dark:text-white"
+          className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-800"
         >
           Page Not Found 😢
         </motion.h2>
 
-        <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm sm:text-base">
+                  <p className="text-gray-600 mb-6 text-sm sm:text-base">
           Sorry, the page you’re looking for doesn’t exist. It might have been moved or deleted.
         </p>
 

@@ -35,13 +35,13 @@ export default function About() {
       >
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
             About Me
           </h1>
-          <p className="mt-4 text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
             Here’s a deeper dive into who I am, what I’ve built, and where I’m heading in this exciting entrepreneurial journey.
           </p>
-          <p className="mt-2 text-md text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-md text-gray-600">
             Get inspired, get to know me — and maybe even join the mission 🚀
           </p>
         </div>
@@ -99,8 +99,8 @@ export default function About() {
               ].map((biz, i) => (
                 <div key={i} className="mb-4">
                   <h3 className="text-lg font-semibold">{biz.name}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{biz.industry}</p>
-                  <p className="text-gray-600 dark:text-gray-300">{biz.desc}</p>
+                                  <p className="text-sm text-gray-500">{biz.industry}</p>
+                <p className="text-gray-600">{biz.desc}</p>
                 </div>
               ))}
             </Card>
@@ -115,7 +115,7 @@ export default function About() {
           >
             {/* Business Achievements */}
             <Card title="Business Achievements" icon={<RocketLaunchIcon className="w-6 h-6" />}>
-              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
                 <li>Built and scaled 6 companies before turning 16</li>
                 <li>Generated jobs and uplifted the local economy</li>
                 <li>Applied innovative strategies in real-world industries</li>
@@ -142,14 +142,14 @@ export default function About() {
             <Card title="Education & Growth" icon={<BookOpenIcon className="w-6 h-6" />}>
               <div className="mb-4">
                 <h3 className="text-lg font-medium">Badimalika Secondary School</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Current - Class 10 (SEE)</p>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-gray-500">Current - Class 10 (SEE)</p>
+                <p className="text-gray-600">
                   Hustling both in the classroom and the boardroom.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-medium">Continuous Learning</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600">
                   Constantly learning business, trends, and tech — because the grind never stops.
                 </p>
               </div>
@@ -163,14 +163,14 @@ export default function About() {
 
 function Card({ title, icon, children }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
       <div className="flex items-center gap-4 mb-4">
-        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg text-black dark:text-white">
+        <div className="bg-gray-100 p-3 rounded-lg text-black">
           {icon}
         </div>
-        <h2 className="text-2xl font-semibold text-black dark:text-white">{title}</h2>
+        <h2 className="text-2xl font-semibold text-black">{title}</h2>
       </div>
-      <div className="text-gray-700 dark:text-gray-300 space-y-2 text-[16px] leading-relaxed">
+      <div className="text-gray-700 space-y-2 text-[16px] leading-relaxed">
         {children}
       </div>
     </div>
