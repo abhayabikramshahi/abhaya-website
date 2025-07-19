@@ -111,6 +111,7 @@ const flirtyLines = {
     "You’re so sweet I’m getting cavities, but also some very bad ideas, {name}.",
     "That smirk of yours, {name}? Illegal.",
     "Tonight, my favorite color is your skin tone, {name}.",
+    "What did the toaster say to the slice of bread?  I want you inside me, {name}.",
   ]
 };
 

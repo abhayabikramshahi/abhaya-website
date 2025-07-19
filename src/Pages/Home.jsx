@@ -90,20 +90,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Trusted Companies */}
-        <section className="py-12 bg-white">
-          <div className="text-center mb-6">
-            <h3 className="text-3xl font-semibold text-gray-600">Trusted by developers & brands</h3>
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="flex justify-center items-center"
-          >
-            <img src={logo1} alt="TechAware Nepal Logo" className="h-[140px]" />
-          </motion.div>
-        </section>
+
 
         {/* Features Section */}
         <section className="py-20 bg-gray-50" aria-labelledby="features-heading">
