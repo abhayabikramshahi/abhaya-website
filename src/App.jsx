@@ -28,6 +28,7 @@ import FlirtingLine from './Pages/FlirtingLine'
 import AbhayaLanguageIntro from './blog/AbhayaLanguageIntro';
 import AbhayaCssFramework from './blog/AbhayaCssFramework';
 import Abhaya1Release from './blog/Abhaya1Release';
+import NepalCybersecurityWeakness from './blog/Nepal-Cybersecurity-Weakness';
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -197,6 +198,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Abhaya1Release />
+            </PageTransition>
+          }
+        />
+              <Route
+          path="/nepal-cybersecurity-weakness"
+          element={
+            <PageTransition>
+              <NepalCybersecurityWeakness />
             </PageTransition>
           }
         />

@@ -67,6 +67,20 @@ const projects = [
     icon: ServerIcon,
     technologies: ['Express.js', 'Node.js', 'Database Management'],
     category: 'Backend Development'
+  },
+  {
+    title: 'Facemash - Nepali Version',
+    description: 'Social media platform inspired by Facemash, allowing users to compare and vote on profiles.',
+    icon: GlobeAltIcon,
+    technologies: ['PHP', 'MYSQL', 'HTML', 'TAILWINDCSS'],
+    category: 'Web Development'
+  },
+  {
+    title: 'Facebook Clone',
+    description: 'A clone of Facebook with features like user profiles, posts, and comments.',
+    icon: GlobeAltIcon,
+    technologies: ['PHP', 'Html', 'MYSQL'],
+    category: 'Web Development'
   }
 ]
 
@@ -121,7 +135,7 @@ export default function Projects() {
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 relative">
+            <div className="flex flex-wrap gap-2 relative border rounded-lg p-4">
               {project.technologies.map((tech) => (
                 <motion.span
                   key={tech}

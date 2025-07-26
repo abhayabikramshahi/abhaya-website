@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
 import { formatDistanceToNow } from 'date-fns';
-import AbhayaLanguageIntro from '../blog/AbhayaLanguageIntro';
-import AbhayaCssFramework from '../blog/AbhayaCssFramework';
-
 
 const blogData = [
   {
@@ -23,14 +20,36 @@ const blogData = [
     author: "Abhaya Shahi",
     slug: "abhaya-css-framework"
   },
+  {
+    id: 3,
+    title: "Nepal's cybersecurity is so weak, it can be breached in seconds—it’s basically begging to be slapped.",
+    description: "An in-depth analysis of Nepal's cybersecurity landscape, highlighting vulnerabilities, challenges, and the urgent need for robust security measures to protect digital assets.",
+    date: new Date("2025-06-08T14:00:00"),
+    author: "Abhaya Shahi",
+    slug: "nepal-cybersecurity-weakness"
+  }
 ];
 
 function Blogs() {
+  const [now, setNow] = useState(new Date());
+
+  // Update current time every minute
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(new Date());
+    }, 60 * 1000); // 1 minute
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, []);
+
   return (
     <div className="bg-gray-50 min-h-screen py-10 px-4 sm:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-gray-900">🧠 Abhaya Blog</h1>
-        <p className='text-md mb-8 text-gray-700'>Welcome to the official Abhaya Blog! Here you'll find stories about Abhaya Language, the Abhaya CSS Framework, and insights into technology, innovation, and web development from Abhaya Shahi and the team.</p>
+        <p className='text-md mb-8 text-gray-700'>
+          Welcome to the official Abhaya Blog! Here you'll find stories about Abhaya Language, the Abhaya CSS Framework,
+          and insights into technology, innovation, and web development from Abhaya Shahi and the team.
+        </p>
         <div className="space-y-6 mt-5">
           {blogData.map((blog) => (
             <Link

@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react'
 const ThemeContext = createContext()
 
 const theme = {
-  name: 'light',
+  name: 'black',
   background: 'bg-white',
   text: 'text-gray-900',
   primary: 'text-gray-900',

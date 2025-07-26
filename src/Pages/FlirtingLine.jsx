@@ -130,14 +130,14 @@ function FlirtingLine() {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-start py-16 px-6 sm:px-10">
       <div className="text-center max-w-screen-sm mb-12">
-        <h1 className="text-5xl font-extrabold text-red-600 mb-4">💘 Flirting Line Generator</h1>
+        <h1 className="text-5xl font-extrabold text-black mb-4">💘 Flirting Line Generator</h1>
         <p className="text-lg text-gray-600">
           Whether you’re being cute, bold, funny or even naughty – we got you. Add their name and vibe it up!
         </p>
       </div>
 
       <div className="w-full max-w-md mb-6">
-        <label className="block mb-2 text-red-600 font-semibold">✨ Choose Your Vibe:</label>
+        <label className="block mb-2 text-gray-900 font-semibold">✨ Choose Your Vibe:</label>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
