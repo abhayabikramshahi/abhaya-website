@@ -1,31 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Palette, Lock, Heart } from "lucide-react"; // lucide icons
 
 const tools = [
   {
-    name: 'CSS Code Generator',
-    description: 'Instantly generate beautiful CSS styles.',
-    to: '/css-code-generator',
-    bgColor: 'bg-blue-600 hover:bg-blue-700',
-    tags: ['Tailwind', 'Design', 'Custom CSS'],
-    icon: '🎨',
+    name: "CSS Code Generator",
+    description: "Instantly generate beautiful CSS styles.",
+    to: "/css-code-generator",
+    tags: ["Tailwind", "Design", "Custom CSS"],
+    icon: <Palette className="w-6 h-6 text-blue-600" />, // lucide icon
   },
   {
-    name: 'Password Strength Checker',
-    description: 'Check how strong your password is.',
-    to: '/password-strength-checker',
-    bgColor: 'bg-green-600 hover:bg-green-700',
-    tags: ['Security', 'Auth', 'Live Feedback'],
-    icon: '🔒',
+    name: "Password Strength Checker",
+    description: "Check how strong your password is.",
+    to: "/password-strength-checker",
+    tags: ["Security", "Auth", "Live Feedback"],
+    icon: <Lock className="w-6 h-6 text-green-600" />,
   },
   {
-    name: 'Flirting Line Generator',
-    description: 'Generate creative flirting lines instantly.',
-    to: '/flirting-line-generator',
-    bgColor: 'bg-red-600 hover:bg-red-700',
-    tags: ['Couples', 'Fun', 'Romance'],
-    icon: '💌',
+    name: "Flirting Line Generator",
+    description: "Generate creative flirting lines instantly.",
+    to: "/flirting-line-generator",
+    tags: ["Couples", "Fun", "Romance"],
+    icon: <Heart className="w-6 h-6 text-red-600" />,
   },
 ];
 
@@ -34,7 +32,7 @@ function TryAI() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className="max-w-6xl mx-auto px-6 py-20"
     >
       <div className="text-center mb-12">
@@ -42,7 +40,8 @@ function TryAI() {
           🚀 Abhaya AI Tools
         </h1>
         <p className="text-gray-600 max-w-xl mx-auto text-lg">
-          Supercharge your workflow with smart, minimal, and powerful AI tools designed for speed and simplicity.
+          Supercharge your workflow with smart, minimal, and powerful AI tools
+          designed for speed and simplicity.
         </p>
       </div>
 
@@ -57,7 +56,7 @@ function TryAI() {
               to={tool.to}
               className="group block bg-white border border-gray-200 shadow-sm rounded-2xl p-6 h-full transition hover:shadow-lg focus:outline-none"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 text-2xl mb-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 mb-4">
                 {tool.icon}
               </div>
 
