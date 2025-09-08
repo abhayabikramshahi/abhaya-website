@@ -2,26 +2,24 @@ import { createContext, useContext } from 'react'
 
 const ThemeContext = createContext()
 
-const theme = {
-  name: 'black',
-  background: 'bg-white',
-  text: 'text-gray-900',
-  primary: 'text-gray-900',
-  secondary: 'text-gray-600',
-  accent: 'bg-gray-50',
-  border: 'border-gray-200',
-  hover: 'hover:bg-gray-50',
-  shadow: 'shadow-gray-200',
-  button: 'bg-gray-900 text-white hover:bg-gray-800',
+const lightTheme = {
+  name: 'light',
+  background: 'bg-white',           // pure white background
+  text: 'text-black',               // strong black text
+  primary: 'text-black',
+  secondary: 'text-gray-600',       // medium gray secondary text
+  accent: 'bg-black/10',            // translucent black accent (glass effect)
+  border: 'border-gray-300',        // light gray border
+  hover: 'hover:bg-black/10',       // subtle black hover overlay
+  shadow: 'shadow-gray-400',        // soft gray shadow
+  button: 'bg-black/10 text-black hover:bg-black/20', // translucent light button
 }
 
 export function ThemeProvider({ children }) {
-  const getThemeColors = () => {
-    return theme
-  }
+  const getThemeColors = () => lightTheme
 
   return (
-    <ThemeContext.Provider value={{ 
+    <ThemeContext.Provider value={{
       currentTheme: 'light',
       getThemeColors,
       isDarkMode: false
@@ -37,4 +35,4 @@ export function useTheme() {
     throw new Error('useTheme must be used within a ThemeProvider')
   }
   return context
-} 
+}

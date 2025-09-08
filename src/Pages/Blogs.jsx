@@ -27,7 +27,16 @@ const blogData = [
     date: new Date("2025-06-08T14:00:00"),
     author: "Abhaya Shahi",
     slug: "nepal-cybersecurity-weakness"
-  }
+  },
+{
+  id: 4,
+  title: "CMD Nepal Cyber Threats: Dark Reality of Hacking in South Asia",
+  description: "CMD Nepal has recently emerged in the Nepali cyber community, targeting .com.np, .gov.np, and .gov.bd domains with anonymous hacking. This article exposes the cyber threats, risks, and urgent need for cybersecurity action in Nepal and South Asia.",
+  date: new Date("2025-06-07T16:00:00"),
+  author: "Rubin Sharma",
+  slug: "cmd-nepal-cyber-threats-hacking"
+}
+
 ];
 
 function Blogs() {

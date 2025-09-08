@@ -6,3 +6,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:wevkit-theme {
+  --wevkit-font-sans: var(--font-sans);
+  --wevkit-font-heading: var(--font-heading);
+}

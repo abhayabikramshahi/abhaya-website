@@ -29,6 +29,7 @@ import AbhayaLanguageIntro from './blog/AbhayaLanguageIntro';
 import AbhayaCssFramework from './blog/AbhayaCssFramework';
 import Abhaya1Release from './blog/Abhaya1Release';
 import NepalCybersecurityWeakness from './blog/Nepal-Cybersecurity-Weakness';
+import CMDNepal from './blog/CMDNepal';
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -96,6 +97,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+
         <Route
           path="/skills"
           element={
@@ -206,6 +208,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <NepalCybersecurityWeakness />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/cmd-nepal-cyber-threats-hacking"
+          element={
+            <PageTransition>
+              <CMDNepal />
             </PageTransition>
           }
         />
