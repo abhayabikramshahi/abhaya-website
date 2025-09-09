@@ -30,6 +30,7 @@ import AbhayaCssFramework from './blog/AbhayaCssFramework';
 import Abhaya1Release from './blog/Abhaya1Release';
 import NepalCybersecurityWeakness from './blog/Nepal-Cybersecurity-Weakness';
 import CMDNepal from './blog/CMDNepal';
+import Genz from './blog/Genz';
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -88,7 +89,14 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-
+          <Route
+          path="/gen-z-protest-activism"
+          element={
+            <PageTransition>
+              <Genz />
+            </PageTransition>
+          }
+        />
         <Route
           path="/about"
           element={
