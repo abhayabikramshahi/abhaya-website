@@ -66,6 +66,7 @@ export default function GenZProtest() {
         `}</script>
       </Helmet>
 
+      
       <h1 className="text-3xl font-extrabold mb-4 text-black leading-tight text-left">
         Gen Z Protest: How the Youth Are Shaping the Future of Activism
       </h1>
