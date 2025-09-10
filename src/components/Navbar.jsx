@@ -60,8 +60,8 @@ export default function Navbar() {
                     className={`group relative flex items-center px-2 py-1 select-none transition-colors duration-300
                       ${
                         isActive(section.path)
-                          ? 'text-red-600 font-semibold tracking-wide uppercase text-sm'
-                          : 'text-gray-600 hover:text-red-600 hover:bg-gray-100 font-medium tracking-wide uppercase text-sm'
+                          ? 'text-gray-600 font-semibold tracking-wide uppercase text-sm'
+                          : 'text-gray-600 hover:text-gray-600 hover:bg-gray-100 font-medium tracking-wide uppercase text-sm'
                       }`}
                     aria-current={isActive(section.path) ? 'page' : undefined}
                     aria-label={section.description}

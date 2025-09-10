@@ -54,7 +54,7 @@ export default function Home() {
                 className="text-left"
               >
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                  Hey, I’m <span className="text-red-600">Abhaya</span>
+                  Hey, I’m <span className="text-gray-600">Abhaya</span>
                 </h1>
                 <h2 className="text-2xl md:text-3xl text-gray-700 mb-6 font-medium">
                   Turning Ideas into Reality through Code & Design
