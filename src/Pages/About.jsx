@@ -6,7 +6,8 @@ import {
   HeartIcon,
   BuildingOfficeIcon,
   RocketLaunchIcon,
-  BookOpenIcon
+  BookOpenIcon,
+  SparklesIcon,
 } from '@heroicons/react/24/outline'
 import SEO from '../components/SEO'
 
@@ -35,6 +36,7 @@ export default function About() {
       >
         {/* Hero Section */}
         <div className="text-center mb-16">
+         
           <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
             About Me
           </h1>
@@ -44,6 +46,14 @@ export default function About() {
           <p className="mt-2 text-md text-gray-600">
             Get inspired, get to know me — and maybe even join the mission 🚀
           </p>
+           <div className="flex justify-center mb-6">
+            {/* Profile Photo */}
+            <img 
+              src="https://www.abhayabikramshahi.xyz/assets/abhaya1-Cka7tVSO.jpg" 
+              alt="Abhaya Bikram Shahi" 
+              className="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-white"
+            />
+          </div>
         </div>
 
         {/* Main Content */}
@@ -60,6 +70,16 @@ export default function About() {
               <p>
                 At 15 years old, I am a successful entrepreneur and business leader with a portfolio of 6 thriving companies. 
                 My journey combines business acumen with technological innovation — I’ve shown leadership, vision, and hustle.
+              </p>
+            </Card>
+
+            {/* Why I Code */}
+            <Card title="Why I Code" icon={<AcademicCapIcon className="w-6 h-6" />}>
+              <p>
+                I started coding because I wanted to create things that didn’t exist yet. 
+                For me, it’s not just about writing code — it’s about solving problems, 
+                turning ideas into reality, and building tools that actually help people. 
+                Every project feels like unlocking a new superpower.
               </p>
             </Card>
 
@@ -99,8 +119,8 @@ export default function About() {
               ].map((biz, i) => (
                 <div key={i} className="mb-4">
                   <h3 className="text-lg font-semibold">{biz.name}</h3>
-                                  <p className="text-sm text-gray-500">{biz.industry}</p>
-                <p className="text-gray-600">{biz.desc}</p>
+                  <p className="text-sm text-gray-500">{biz.industry}</p>
+                  <p className="text-gray-600">{biz.desc}</p>
                 </div>
               ))}
             </Card>
@@ -122,6 +142,15 @@ export default function About() {
                 <li>Created recognizable brand value in Nepal</li>
                 <li>Balanced school, startups, and sanity 😅</li>
               </ul>
+            </Card>
+
+            {/* My Journey */}
+            <Card title="My Journey" icon={<BriefcaseIcon className="w-6 h-6" />}>
+              <p>
+                I grew up fascinated by technology, always curious about how apps, games, and websites worked. 
+                By experimenting, breaking, and fixing things, I slowly turned curiosity into skill. 
+                That journey evolved into building real businesses and mentoring other young creators in Nepal.
+              </p>
             </Card>
 
             {/* Vision & Mission */}
@@ -153,6 +182,16 @@ export default function About() {
                   Constantly learning business, trends, and tech — because the grind never stops.
                 </p>
               </div>
+            </Card>
+
+            {/* Fun Facts & Hobbies */}
+            <Card title="Fun Facts & Hobbies" icon={<SparklesIcon className="w-6 h-6" />}>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>I love capturing moments with my Canon EOS 4000D 📸</li>
+                <li>Big fan of outdoor adventures & Nepali culture</li>
+                <li>Sometimes I code late at night with lo-fi beats</li>
+                <li>Dreaming of building the “Silicon Valley of Nepal”</li>
+              </ul>
             </Card>
           </motion.div>
         </div>

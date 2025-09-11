@@ -76,7 +76,7 @@ function Blogs() {
                 key={blog.id}
                 className={`relative block group p-6 rounded-xl transition-all border 
                   ${isGenZ 
-                    ? "bg-[#FFF9E5] border-yellow-400 shadow-lg hover:shadow-xl" 
+                    ? "bg-[#fff]  shadow-lg hover:shadow-xl" 
                     : "bg-white border-gray-200 shadow-sm hover:shadow-md"
                   }`}
               >
@@ -88,7 +88,7 @@ function Blogs() {
                 )}
 
                 <div className="flex items-center justify-between">
-                  <h2 className={`text-xl font-semibold group-hover:text-[#087EA4] transition-colors
+                  <h2 className={`text-xl font-semibold group-hover:text-[#000] transition-colors
                     ${isGenZ ? "text-[#D97706]" : "text-gray-900"}`}>
                     {blog.title}
                   </h2>
