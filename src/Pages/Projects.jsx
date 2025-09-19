@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GlobeAltIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
+import {
+  GlobeAltIcon,
+  CodeBracketIcon,
+} from "@heroicons/react/24/outline";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Projects() {
@@ -15,12 +18,34 @@ export default function Projects() {
     async function fetchRepos() {
       try {
         const res = await fetch(
-          "https://api.github.com/users/abhayabikramshahi/repos?per_page=100&sort=updated"
+          "https://api.github.com/users/abhayabikramshahi/repos?per_page=100&sort=updated",
+          {
+            headers: {
+              Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            },
+          }
         );
         const data = await res.json();
+
+        if (!Array.isArray(data)) {
+          console.error("Unexpected API response:", data);
+          // fallback
+          const fallback = await fetch("/repos.json");
+          const fallbackData = await fallback.json();
+          setRepos(fallbackData);
+          return;
+        }
+
         setRepos(data);
       } catch (error) {
         console.error("Error fetching repos:", error);
+        try {
+          const fallback = await fetch("/repos.json");
+          const fallbackData = await fallback.json();
+          setRepos(fallbackData);
+        } catch (err) {
+          setRepos([]);
+        }
       } finally {
         setLoading(false);
       }
@@ -28,45 +53,44 @@ export default function Projects() {
     fetchRepos();
   }, []);
 
-  // Extract years from repos (based on pushed_at)
+  // Extract years
   const years = [
     ...new Set(
       repos.map((repo) => new Date(repo.pushed_at).getFullYear().toString())
     ),
-  ].sort((a, b) => b - a); // sort descending
+  ].sort((a, b) => b - a);
 
-  // Filter repos by year
   const filteredRepos =
     selectedYear === "all"
       ? repos
       : repos.filter(
-          (repo) => new Date(repo.pushed_at).getFullYear().toString() === selectedYear
+          (repo) =>
+            new Date(repo.pushed_at).getFullYear().toString() === selectedYear
         );
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      transition={{ duration: 0.6 }}
+      className="max-w-6xl mx-auto px-6 py-16"
     >
-      {/* Header Section */}
-      <div className="text-center mb-8">
-        <h1 className={`text-4xl font-bold ${themeColors.text} mb-2`}>
-          My Projects
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className={`text-3xl md:text-4xl font-bold ${themeColors.text}`}>
+          Projects
         </h1>
-        <p className={`text-lg ${themeColors.secondary}`}>
-          Total Repositories:{" "}
-          <span className="font-bold">{repos.length}</span> | Showing:{" "}
-          <span className="font-bold">{filteredRepos.length}</span>
+        <p className={`mt-2 text-base ${themeColors.secondary}`}>
+          A collection of my work, from open-source contributions to personal
+          experiments.
         </p>
 
         {/* Year Filter */}
-        <div className="mt-4">
+        <div className="mt-6">
           <select
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
-            className="px-4 py-2 rounded-lg border shadow-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+            className="px-4 py-2 rounded-lg border text-sm shadow-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
           >
             <option value="all">All Years</option>
             {years.map((year) => (
@@ -79,56 +103,66 @@ export default function Projects() {
       </div>
 
       {/* Loading */}
-      {loading && <p className="text-center text-lg">Loading repositories...</p>}
+      {loading && (
+        <p className="text-center text-gray-500 text-sm animate-pulse">
+          Fetching repositories...
+        </p>
+      )}
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredRepos.map((repo) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredRepos.map((repo, i) => (
           <motion.div
             key={repo.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.2 },
-            }}
-            className={`${themeColors.background} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${themeColors.border} relative overflow-hidden group`}
+            transition={{ delay: i * 0.05 }}
+            whileHover={{ y: -4, scale: 1.02 }}
+            className={`${themeColors.background} rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border ${themeColors.border} relative group`}
           >
-            {/* Background Icon */}
-            <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-              <GlobeAltIcon className="w-32 h-32 absolute -right-8 -bottom-8 transform rotate-12" />
+            {/* Icon Background */}
+            <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+              <GlobeAltIcon className="w-28 h-28 absolute -right-6 -bottom-6 rotate-12" />
             </div>
 
-            <div className="flex items-center gap-4 mb-6 relative">
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-4">
               <div
-                className={`${themeColors.accent} p-3 rounded-xl group-hover:scale-110 transition-transform duration-300`}
+                className={`${themeColors.accent} p-2.5 rounded-lg group-hover:scale-110 transition-transform`}
               >
-                <CodeBracketIcon className={`w-7 h-7 ${themeColors.primary}`} />
+                <CodeBracketIcon
+                  className={`w-6 h-6 ${themeColors.primary}`}
+                />
               </div>
               <div>
-                <h2 className={`text-xl font-semibold ${themeColors.text}`}>
+                <h2 className={`text-lg font-semibold ${themeColors.text}`}>
                   {repo.name}
                 </h2>
-                <p className={`text-sm ${themeColors.secondary}`}>
-                  {repo.language || "Unknown Language"}
+                <p className={`text-xs ${themeColors.secondary}`}>
+                  {repo.language || "Other"}
                 </p>
               </div>
             </div>
 
-            <p className={`${themeColors.secondary} mb-6 relative`}>
-              {repo.description || "No description provided."}
+            {/* Description */}
+            <p className={`text-sm ${themeColors.secondary} mb-5`}>
+              {repo.description || "No description available."}
             </p>
 
-            <div className="flex flex-wrap gap-2 relative border rounded-lg p-4">
+            {/* Footer */}
+            <div className="flex justify-between items-center text-xs">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-4 py-2 ${themeColors.accent} ${themeColors.text} rounded-full text-sm font-medium`}
+                className={`px-3 py-1.5 ${themeColors.accent} ${themeColors.text} rounded-full font-medium shadow-sm`}
               >
                 View Repo
               </motion.a>
+              <span className="text-gray-400">
+                {new Date(repo.pushed_at).getFullYear()}
+              </span>
             </div>
           </motion.div>
         ))}

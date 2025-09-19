@@ -37,7 +37,7 @@ function TryAI() {
     >
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
-          🚀 Abhaya AI Tools
+          Abhaya AI Tools
         </h1>
         <p className="text-gray-600 max-w-xl mx-auto text-lg">
           Supercharge your workflow with smart, minimal, and powerful AI tools

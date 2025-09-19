@@ -1,123 +1,140 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import Educational from './Educational';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Educational from "./Educational";
 import {
   RocketLaunchIcon,
   SparklesIcon,
-} from '@heroicons/react/24/outline';
-import SEO from '../components/SEO';
-import abhaya1 from '../images/abhaya1.jpg';
+} from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
+import abhaya1 from "../images/abhaya1.jpg";
 
-// Only one logo for now
-import logo1 from '../assets/techawarenepal.png';
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  show: (i = 1) => ({
+// Reusable fade-up animation
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: 'easeOut',
-    },
+    transition: { delay, duration: 0.6, ease: "easeOut" },
   }),
 };
 
 export default function Home() {
   return (
     <>
+      {/* 🔹 SEO */}
       <SEO
-        title="Home | Abhaya's Personal Website"
-        description="Welcome to my personal website where I share my journey, projects, and experiences."
-        keywords="portfolio, projects, skills, full-stack developer"
+        title="Home | Abhaya Bikram Shahi"
+        description="Official portfolio of Abhaya Bikram Shahi — Full-stack developer and creative thinker from Nepal. Explore my projects, skills, and journey in tech."
+        keywords="Abhaya Bikram Shahi, portfolio, full-stack developer, Nepal, coding, design"
         type="website"
-        ogTitle="Abhaya's Personal Website"
-        ogDescription="Explore my journey, work, and thoughts."
+        ogTitle="Abhaya Bikram Shahi | Full-Stack Developer"
+        ogDescription="Turning ideas into reality through code & design."
         ogImage={abhaya1}
         twitterCard="summary_large_image"
-        twitterTitle="Abhaya's Personal Website"
-        twitterDescription="Explore my journey, work, and thoughts."
+        twitterTitle="Abhaya Bikram Shahi | Portfolio"
+        twitterDescription="Full-stack developer passionate about building unforgettable digital experiences."
         twitterImage={abhaya1}
+        canonical="https://abhayabikramshahi.vercel.app/"
+        locale="en_US"
       />
 
-      <main>
+      <main className="flex flex-col items-center text-center">
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-br from-white via-gray-50 to-gray-100" aria-labelledby="hero-heading">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Text Content */}
-              <motion.div
-                variants={fadeIn}
-                initial="hidden"
-                animate="show"
-                className="text-left"
+        <section className="relative py-28 w-full bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
+          <div className="container mx-auto px-6 flex flex-col items-center">
+            {/* Animate text block */}
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={fadeInUp}
+              className="max-w-2xl"
+            >
+              <motion.h1
+                variants={fadeInUp}
+                custom={0.2}
+                className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6"
               >
-                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                  Hey, I’m <span className="text-gray-600">Abhaya</span>
-                </h1>
-                <h2 className="text-2xl md:text-3xl text-gray-700 mb-6 font-medium">
-                  Turning Ideas into Reality through Code & Design
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 max-w-xl">
-                  I’m a full-stack developer and creative thinker, passionate about building digital experiences that are not just functional but unforgettable.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-all duration-300 shadow-lg">
-                    <RocketLaunchIcon className="h-5 w-5" />
-                    View Projects
-                  </Link>
-                  <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-black text-black hover:bg-gray-100 transition-all duration-300">
-                    <SparklesIcon className="h-5 w-5" />
-                    About Me
-                  </Link>
-                </div>
-              </motion.div>
+                Hi, I’m <span className="text-gray-700">Abhaya Bikram Shahi</span>
+              </motion.h1>
 
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+              <motion.h2
+                variants={fadeInUp}
+                custom={0.4}
+                className="text-xl md:text-2xl text-gray-600 mb-6 font-medium"
               >
-                <img loading="lazy" src={abhaya1} alt="Abhaya - Developer Portrait" className="w-full h-full object-cover" />
-                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-sm font-medium text-gray-800">
-                  Let’s build something amazing.
-                </div>
+                Full-Stack Developer · Creative Thinker · Ethical Hacker
+              </motion.h2>
+
+              <motion.p
+                variants={fadeInUp}
+                custom={0.6}
+                className="text-lg text-gray-600 mb-10 leading-relaxed"
+              >
+                I build meaningful digital experiences that blend functionality
+                with creativity. Passionate about clean code, scalable design,
+                and innovative solutions.
+              </motion.p>
+
+              <motion.div
+                variants={fadeInUp}
+                custom={0.8}
+                className="flex flex-wrap justify-center gap-4"
+              >
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-all duration-300 shadow-md"
+                >
+                  <RocketLaunchIcon className="h-5 w-5" />
+                  View Projects
+                </Link>
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-900 text-gray-900 hover:bg-gray-100 transition-all duration-300"
+                >
+                  <SparklesIcon className="h-5 w-5" />
+                  About Me
+                </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-
-
         {/* Features Section */}
-        <section className="py-20 bg-gray-50" aria-labelledby="features-heading">
-          <div className="container mx-auto px-6">
-            <h2 id="features-heading" className="text-3xl font-bold text-center mb-12">What I Do</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+        <section className="py-24 w-full bg-white">
+          <div className="container mx-auto px-6 flex flex-col items-center">
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              custom={0.1}
+              className="text-3xl font-bold mb-16"
+            >
+              What I Do
+            </motion.h2>
+
+            <div className="grid md:grid-cols-2 gap-10 max-w-4xl">
               {["Creative Projects", "Professional Work"].map((title, i) => (
                 <motion.article
                   key={title}
-                  variants={fadeIn}
+                  variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  custom={i}
-                  className="bg-white p-6 rounded-xl shadow-md"
+                  custom={i * 0.3}
+                  className="bg-gray-50 p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
                 >
                   <h3 className="text-xl font-semibold mb-4">{title}</h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 mb-6">
                     {i === 0
-                      ? 'Exploring innovative ideas and bringing them to life through various creative endeavors.'
-                      : 'Delivering high-quality solutions and contributing to meaningful projects.'}
+                      ? "Exploring innovative ideas and bringing them to life through passion projects."
+                      : "Delivering high-quality, scalable solutions in real-world projects."}
                   </p>
                   <Link
-                    to={i === 0 ? '/skills' : '/projects'}
-                    className="text-black font-medium hover:underline mt-4 inline-block"
+                    to={i === 0 ? "/skills" : "/projects"}
+                    className="text-black font-medium hover:underline"
                   >
-                    {i === 0 ? 'Explore my skills →' : 'See my work →'}
+                    {i === 0 ? "Explore my skills →" : "See my work →"}
                   </Link>
                 </motion.article>
               ))}
@@ -127,23 +144,32 @@ export default function Home() {
 
         {/* Call to Action */}
         <motion.section
-          variants={fadeIn}
+          variants={fadeInUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="py-20"
+          custom={0.2}
+          className="py-24 w-full bg-gray-50"
         >
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Interested in working together or just want to say hello? I’m open to collaborations, freelance work, or just tech talk.
+          <div className="container mx-auto px-6 flex flex-col items-center">
+            <h2 className="text-3xl font-bold mb-6">Let’s Collaborate</h2>
+            <p className="text-lg text-gray-600 mb-10 max-w-2xl leading-relaxed">
+              Open to collaborations, freelance projects, and exciting
+              opportunities. If you’re looking for someone who can turn
+              innovative ideas into reality — let’s connect.
             </p>
-            <Link
-              to="/skills"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300"
+            <motion.div
+              variants={fadeInUp}
+              custom={0.4}
+              className="flex justify-center"
             >
-              View Skills
-            </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-3 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300 shadow-md"
+              >
+                Get in Touch
+              </Link>
+            </motion.div>
           </div>
         </motion.section>
       </main>
