@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { HelmetProvider } from "react-helmet-async";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SEO from "./components/SEO";
@@ -21,35 +22,34 @@ import Gallery from "./Pages/Gallery";
 import Educational from "./Pages/Educational";
 import PageNotFound from "./Pages/PageNotFound";
 import Blogs from "./Pages/Blogs";
-import AbhayaAi from './Pages/Abhaya-ai'
-import CssCodeGenerator from './Pages/CssCodeGenerator'
-import PasswordStrengthChecker from './Pages/PasswordStrengthChecker'
-import FlirtingLine from './Pages/FlirtingLine'
-import AbhayaLanguageIntro from './blog/AbhayaLanguageIntro';
-import AbhayaCssFramework from './blog/AbhayaCssFramework';
-import Abhaya1Release from './blog/Abhaya1Release';
-import NepalCybersecurityWeakness from './blog/Nepal-Cybersecurity-Weakness';
-import CMDNepal from './blog/CMDNepal';
-import Genz from './blog/Genz';
+import AbhayaAi from "./Pages/Abhaya-ai";
+import CssCodeGenerator from "./Pages/CssCodeGenerator";
+import PasswordStrengthChecker from "./Pages/PasswordStrengthChecker";
+import FlirtingLine from "./Pages/FlirtingLine";
 
+import AbhayaLanguageIntro from "./blog/AbhayaLanguageIntro";
+import AbhayaCssFramework from "./blog/AbhayaCssFramework";
+import Abhaya1Release from "./blog/Abhaya1Release";
+import NepalCybersecurityWeakness from "./blog/Nepal-Cybersecurity-Weakness";
+import CMDNepal from "./blog/CMDNepal";
+import Genz from "./blog/Genz";
 
+import { Analytics } from "@vercel/analytics/react"; // ✅ correct import
 import { motion, AnimatePresence } from "framer-motion";
 
-// Page transition wrapper component
-const PageTransition = ({ children }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+// Page transition wrapper
+const PageTransition = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    transition={{ duration: 0.3, ease: "easeInOut" }}
+  >
+    {children}
+  </motion.div>
+);
 
-// Wrapper component to handle location
+// Wrapper to handle route animations
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -64,36 +64,11 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-              <Route
-          path="/flirting-line-generator"
-          element={
-            <PageTransition>
-              <FlirtingLine />
-            </PageTransition>
-          }
-        />
-
         <Route
           path="/home"
           element={
             <PageTransition>
               <Home />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/blogs"
-          element={
-            <PageTransition>
-              <Blogs />
-            </PageTransition>
-          }
-        />
-          <Route
-          path="/gen-z-protest-activism"
-          element={
-            <PageTransition>
-              <Genz />
             </PageTransition>
           }
         />
@@ -105,7 +80,6 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-
         <Route
           path="/skills"
           element={
@@ -155,6 +129,30 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/blogs"
+          element={
+            <PageTransition>
+              <Blogs />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/gen-z-protest-activism"
+          element={
+            <PageTransition>
+              <Genz />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/abhaya-ai"
+          element={
+            <PageTransition>
+              <AbhayaAi />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/css-code-generator"
           element={
             <PageTransition>
@@ -170,24 +168,15 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-
         <Route
-          path="*"
+          path="/flirting-line-generator"
           element={
             <PageTransition>
-              <PageNotFound />
+              <FlirtingLine />
             </PageTransition>
           }
         />
-              <Route
-          path="/abhaya-ai"
-          element={
-            <PageTransition>
-           <AbhayaAi />
-            </PageTransition>
-          }
-        />
-              <Route
+        <Route
           path="/abhaya-language-intro"
           element={
             <PageTransition>
@@ -195,7 +184,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-              <Route
+        <Route
           path="/abhaya-css-framework"
           element={
             <PageTransition>
@@ -203,7 +192,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-              <Route
+        <Route
           path="/abhaya-1-release"
           element={
             <PageTransition>
@@ -211,7 +200,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-              <Route
+        <Route
           path="/nepal-cybersecurity-weakness"
           element={
             <PageTransition>
@@ -219,11 +208,19 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/cmd-nepal-cyber-threats-hacking"
           element={
             <PageTransition>
               <CMDNepal />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <PageNotFound />
             </PageTransition>
           }
         />
@@ -252,6 +249,7 @@ function App() {
             <Footer />
           </div>
         </Router>
+        <Analytics /> {/* ✅ Properly placed analytics */}
       </ThemeProvider>
     </HelmetProvider>
   );
