@@ -68,7 +68,7 @@ export default function Home() {
               <motion.p
                 variants={fadeInUp}
                 custom={0.6}
-                className="text-lg text-gray-600 mb-10 leading-relaxed"
+                className="text-lg text-gray-800 mb-10 leading-relaxed"
               >
                 I build meaningful digital experiences that blend functionality
                 with creativity. Passionate about clean code, scalable design,
