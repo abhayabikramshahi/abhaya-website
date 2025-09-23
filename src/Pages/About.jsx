@@ -48,11 +48,6 @@ export default function About() {
           </p>
            <div className="flex justify-center mb-6">
             {/* Profile Photo */}
-            <img 
-              src="https://www.abhayabikramshahi.xyz/assets/abhaya1-Cka7tVSO.jpg" 
-              alt="Abhaya Bikram Shahi" 
-              className="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-white"
-            />
           </div>
         </div>
 
@@ -158,10 +153,10 @@ export default function About() {
               <p className="mb-3">
                 My mission is to spark change, empower youth, and reshape Nepal’s future through technology, innovation, and leadership.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-600">
                 <li>Expand into South Asia</li>
-                <li>Create 1,000+ jobs by 2030</li>
-                <li>Promote innovation in traditional sectors</li>
+                <li>Create 1,000+ jobs by 2040</li>
+                <li>Promote Nepal from the Strong vison of IT Hub</li>
                 <li>Mentor rising young founders</li>
                 <li>Fuel Nepal’s growth from the inside out</li>
               </ul>

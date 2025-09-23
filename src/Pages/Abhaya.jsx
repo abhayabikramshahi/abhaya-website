@@ -109,7 +109,7 @@ const runCode = () => {
     // Display output
     setVariables(currentVariables)
     setOutput(
-      <div className="chapde-output p-4 bg-white dark:bg-gray-800 rounded-lg border whitespace-pre-wrap font-mono">
+      <div className="chapde-output p-4 bg-white  rounded-lg border whitespace-pre-wrap font-mono">
         {result.trim()}
       </div>
     )
@@ -138,7 +138,7 @@ const runCode = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <section className="relative py-20 bg-gradient-to-br from-white to-gray-100 ">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -146,10 +146,10 @@ const runCode = () => {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-black mb-6">
               The Abhaya Language
             </h1>
-            <p className="text-xl text-black dark:text-white mb-8">
+            <p className="text-xl text-black  mb-8">
               A modern programming language designed for simplicity, efficiency, and developer happiness
             </p>
           </motion.div>
@@ -157,7 +157,7 @@ const runCode = () => {
       </section>
 
       {/* Code Playground Section */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-white ">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,8 +169,8 @@ const runCode = () => {
             <div className="relative mb-8">
               <div className="absolute left-0 top-0 h-full w-2 bg-gradient-to-b from-blue-500 to-purple-500 rounded-l-xl" />
               <div className="pl-6">
-                <h2 className="text-3xl font-heading font-bold text-black dark:text-white mb-2">Try Abhaya Online</h2>
-                <p className="text-lg font-sans text-gray-600 dark:text-gray-300 mb-4">Experiment with the Abhaya language in your browser.</p>
+                <h2 className="text-3xl font-heading font-bold text-black mb-2">Try Abhaya Online</h2>
+                <p className="text-lg font-sans text-gray-600  mb-4">Experiment with the Abhaya language in your browser.</p>
               </div>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-0 overflow-hidden">

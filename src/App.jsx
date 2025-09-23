@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SEO from "./components/SEO";
 import Preloader from "./components/Preloader";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ NEW
 
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -33,8 +34,9 @@ import Abhaya1Release from "./blog/Abhaya1Release";
 import NepalCybersecurityWeakness from "./blog/Nepal-Cybersecurity-Weakness";
 import CMDNepal from "./blog/CMDNepal";
 import Genz from "./blog/Genz";
+import Vercel from "./blog/Vercel";
 
-import { Analytics } from "@vercel/analytics/react"; // ✅ correct import
+import { Analytics } from "@vercel/analytics/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Page transition wrapper
@@ -184,6 +186,14 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+            <Route
+          path="/vercel-404-error-remove"
+          element={
+            <PageTransition>
+              <Vercel />
+            </PageTransition>
+          }
+        />
         <Route
           path="/abhaya-css-framework"
           element={
@@ -234,6 +244,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
+          <ScrollToTop /> {/* ✅ Always run on route change */}
           <div className="min-h-screen bg-white text-gray-900">
             <SEO
               title="Abhaya - Full Stack Developer"
@@ -249,7 +260,7 @@ function App() {
             <Footer />
           </div>
         </Router>
-        <Analytics /> {/* ✅ Properly placed analytics */}
+        <Analytics />
       </ThemeProvider>
     </HelmetProvider>
   );
