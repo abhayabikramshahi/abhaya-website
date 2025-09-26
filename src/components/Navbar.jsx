@@ -9,7 +9,7 @@ const sections = [
   { id: 'about', label: 'About Me', path: '/about', description: 'Learn more about me and my background' },
   { id: 'tool', label: 'Tool', path: '/abhaya-ai', description: 'Access Abhaya AI tools' },
   { id: 'skills', label: 'Technical Skills', path: '/skills', description: 'View my technical expertise and capabilities' },
-  { id: 'projects', label: 'My Projects', path: '/projects', description: 'Explore my portfolio of projects' },
+  // { id: 'projects', label: 'My Projects', path: '/projects', description: 'Explore my portfolio of projects' },
   { id: 'abhaya', label: 'Abhaya Language', path: '/abhaya', description: 'Learn about the Abhaya programming language' },
   { id: 'blogs', label: 'Blogs', path: '/blogs', description: 'Read my blog posts' }
 ]

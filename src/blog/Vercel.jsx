@@ -51,7 +51,9 @@ function Vercel() {
           <h2 className="text-2xl font-semibold">✨ How I Fixed It</h2>
           <p>The solution is super simple: tell Vercel to always serve <code>index.html</code> and let React Router do the rest. Here’s what I added to the root of my project:</p>
           <pre className="bg-gray-100 p-4 rounded overflow-x-auto text-sm">
-{`{
+{`
+  // vercel.json
+{
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
